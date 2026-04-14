@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <title>runningbanner</title>
+    <style>
+    @keyframes runtext
+    {
+        from{left:-500px;}
+        to{left:1400px;}
+    }
+
+    @keyframes changepic
+    {
+        10%{background-image:url('images/p1.jpg');}
+        20%{background-image:url('images/p2.jpg');}
+        30%{background-image:url('images/p3.jpg');}
+        40%{background-image:url('images/p4.jpg');}
+        50%{background-image:url('images/p5.jpg');}
+        60%{background-image:url('images/p6.jpg');}
+        70%{background-image:url('images/p7.jpg');}
+        80%{background-image:url('images/p8.jpg');}
+        90%{background-image:url('images/p9.jpg');}
+        100%{background-image:url('images/p10.jpg');}
+    }
+    
+    @keyframes mycolor
+    {
+        10%{color: rgb(59, 165, 198);}
+        30%{color: rgb(43, 97, 43);}
+        50%{color: rgb(146, 33, 104);}
+        70%{color: rgb(204, 187, 100);}
+    }
+
+    header
+    {
+        background: rgb(13, 18, 65);
+        background-image:url(images/p1.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height:600px;
+        colour: white;
+        width:90%;
+        margin:auto;
+        overflow:hidden;
+        animation:changepic 12s linear infinite;
+    }
+
+    #text
+    {
+        margin-top:5px;
+        padding-top:30px;
+        font-family:arial black;
+        font-size:50px;
+        color:rgb(219, 122, 164);
+        text-shadow:5px 5px 5px black;
+        text-transform:uppercase;
+        //background:yellow;
+        position:relative;
+        left:-500px;
+        top:100px;
+        animation:runtext 32s linear infinite alternate ,mycolor 2s infinite;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="text" >Welcome to Nature care </div>
+    </header>
+</body>
+</html>

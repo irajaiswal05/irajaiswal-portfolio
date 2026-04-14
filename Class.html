@@ -1,0 +1,77 @@
+<!dcotype html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<header><div id="col1">profile pic</div><div id="col2">banner</div></headeR>
+<title>Banner</title>
+
+<style>
+
+body{font-family:Arial,sans-serif;background:#8a8ab4;}
+
+div{border:1px black solid;pading:10px;}
+
+#col1{height:100px;width:20%;margin:10px;border-radius:100px;}
+
+#col2{width:60%;height:200px;margin:10px;}
+
+header{border:1px black solid;display:flex;flex-direction:row;justify-content:space-between;flex-wrap:wrap;}
+
+main{display:flex;flex-wrap:wrap;}
+
+.cardstyle{width:60%;height:180px;box-shadow:10px 10px 10px rgb(69, 68, 68);}
+
+@media only screen and (max-width:600px){body{background:#e6f7ff;}#col2{display:none}header{justify-content:center;}.cardstyle{margin:auto;margin-top:40px;}nav ol li{display:block;}}
+
+@media only screen and (min-width:600px){body{background:#fffbe6;}#col2{width:70%;}#col1{width:10%;height:40px;}main{justify-content:center;}.cardstyle{width:40%;margin:10px;}nav ol li{display:inline;}}
+
+@media only screen and (min-width:768px){body{background:#fff0f6;}#col1{width:15%;height:120px;}#col2{height:200px}.cardstyle{width:20%;margin:10px;}}
+
+@media only screen and (min-width:992px){body{background:#f9f0ff;}#col2{width:90%;height:400px;margin:auto;}#col1{display:none;}}
+
+.pic{width:100%;}
+
+nav{width:90%;margin:auto;text-align:center;margin:50px;}
+
+nav ol li{list-style:none;background:rgb(200, 53, 107);margin-left:-2px;padding:20px;text-align:center;cursor:pointer;box-shadow:10px 10px 10px black;transition:0.50s;}
+
+nav ol li:hover{background:white;transform:scale(1.10);}
+
+a:link{color:rgb(255, 255, 255);text-decoration:none;}
+a:visited{color:white;}
+a:hover{text-decoration:underline;color:rgb(54, 54, 104);}
+a:active{}
+
+</style>
+
+<body>
+
+<nav>
+
+<ol>
+<li><a href="index.html">Home</a></li>
+<li><a href="#">Practice Work</a></li>
+<li><a href="#">Project</a></li>
+<li><a href="http://google.com">Google</a></li>
+</ol>
+
+</nav>
+
+
+<main>
+
+<div class="cardstyle" id="card1"><img src="images/.jpg" class="pic"></div>
+<div class="cardstyle" id="card2"><img src="images/" class="pic" height="100%"></div>
+<div class="cardstyle" id="card3">pic 3</div>
+<div class="cardstyle" id="card4">pic 4</div>
+<div class="cardstyle" id="card5">pic 5</div>
+<div class="cardstyle" id="card6">pic 6</div>
+<div class="cardstyle" id="card7">pic 7</div>
+<div class="cardstyle" id="card8">pic 8</div>
+<div class="cardstyle" id="card9">pic 9</div>
+<div class="cardstyle" id="card10">pic 10</div>
+
+</main>
+
+</body>
+<footer></footer>
+</html>

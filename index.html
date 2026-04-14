@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ira Jaiswal | UI/UX Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a192f;
+            --bg-secondary: #172a45;
+            --accent-pink: #ff007f;
+            --accent-light: #ffd1dc;
+            --text-main: #ccd6f6;
+            --text-heading: #e6f1ff;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-subheading: 'Cinzel Decorative', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--text-heading);
+            font-weight: 500;
+        }
+
+        a { text-decoration: none; transition: 0.3s; }
+
+        .top-nav {
+            background-color: rgba(2, 12, 27, 0.95);
+            padding: 15px 0;
+            text-align: center;
+            position: sticky; top: 0; z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .top-nav ul {
+            list-style: none;
+            display: flex; flex-wrap: wrap; justify-content: center;
+        }
+
+        .top-nav li {
+            margin: 5px 15px;
+        }
+
+        .top-nav a {
+            color: var(--text-main);
+            font-family: var(--font-subheading);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .top-nav a:hover {
+            color: var(--accent-pink);
+        }
+
+        .top-banner {
+            height: 90vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center; padding: 20px;
+            background: radial-gradient(circle at center, #112240 0%, #0a192f 70%);
+        }
+
+        .top-banner h1 {
+            font-size: 2.5rem; margin-bottom: 10px;
+            text-shadow: none;
+        }
+
+        @keyframes tickerLoop {
+            0% { content: "UI/UX DESIGNER"; opacity: 1; }
+            30% { opacity: 0; }
+            35% { content: "GRAPHIC DESIGNER"; opacity: 1; }
+            65% { opacity: 0; }
+            70% { content: "VISUAL THINKER"; opacity: 1; }
+            95% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .ticker-text {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .ticker-text::after {
+            content: "";
+            animation: tickerLoop 10s infinite;
+            color: var(--accent-pink);
+            font-weight: 600;
+        }
+
+        .work-container {
+            width: 90%; max-width: 1200px; margin: auto; padding: 60px 0;
+        }
+
+        .section-heading {
+            font-family: var(--font-subheading);
+            color: var(--text-heading);
+            text-align: center; margin-bottom: 50px; font-size: 1.8rem;
+            text-transform: uppercase;
+        }
+
+        .work-grid {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
+        }
+
+        .work-card {
+            background-color: var(--bg-secondary);
+            width: 100%;
+            height: 300px; padding: 20px;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            border-bottom: 3px solid transparent;
+        }
+
+        .work-card:hover {
+            border-color: var(--accent-pink);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+
+        .work-card h3 {
+            font-family: var(--font-body); font-weight: 600;
+            font-size: 1.3rem; letter-spacing: 0;
+        }
+
+        .work-card p {
+            color: #888; font-size: 0.9rem;
+        }
+
+        .contact-section {
+            background-color: var(--bg-secondary); padding: 80px 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .contact-form table {
+            width: 100%; max-width: 600px; margin: auto;
+            border: 0;
+        }
+
+        .contact-form td { padding: 10px; vertical-align: middle; }
+
+        .contact-form label {
+            color: var(--text-heading); font-family: var(--font-subheading);
+            font-size: 0.8rem; text-transform: uppercase;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 15px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-main); font-family: var(--font-body);
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none; border-color: var(--accent-pink);
+        }
+
+        .form-submit {
+            padding: 15px 40px; border: 2px solid var(--accent-pink);
+            background: var(--accent-pink); color: white;
+            font-family: var(--font-subheading); cursor: pointer;
+            font-weight: 600;
+        }
+
+        .form-submit:hover { 
+            background: transparent;
+            color: var(--accent-pink);
+        }
+
+        footer {
+            background-color: rgba(2, 12, 27, 1);
+            padding: 60px 20px; text-align: center;
+        }
+
+        .footer-logo { font-size: 1.5rem; margin-bottom: 20px; }
+
+        .footer-social summary {
+            font-family: var(--font-subheading); color: var(--text-heading);
+            cursor: pointer; list-style: none; margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .footer-social ul { list-style: none; display: flex; justify-content: center; gap: 20px; }
+        .footer-social a { color: #888; font-size: 1.2rem; }
+        .footer-social a:hover { color: var(--accent-pink); }
+
+        .copyright { font-size: 0.8rem; color: #555; margin-top: 40px; }
+
+        @media only screen and (min-width: 600px) {
+            .work-card { width: 45%; } 
+        }
+
+        @media only screen and (min-width: 768px) {
+            .top-banner h1 { font-size: 3.5rem; }
+            .ticker-text { font-size: 1.5rem; }
+            .top-nav a { font-size: 1.1rem; }
+            .work-card { width: calc(33.33% - 20px); }
+        }
+
+        @media only screen and (min-width: 992px) {
+            .work-card { width: calc(25% - 23px); } 
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Profile.html">My Profile</a></li>
+            <li><a href="Practice.html">Practice Work</a></li>
+            <li><a href="#form-section">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="top-banner">
+        <h1>IRA JAISWAL.</h1>
+        <div class="ticker-text">I am a&nbsp;</div>
+    </header>
+
+
+    <section id="form-section" class="contact-section">
+        <h2 class="section-heading">Get In Touch</h2>
+        <div class="contact-form">
+            <form action="#" method="post">
+                <table>
+                    <tr>
+                        <td><label for="fname">First Name</label></td>
+                        <td><input type="text" id="fname" name="fname" placeholder="Required" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="uemail">Your Email</label></td>
+                        <td><input type="email" id="uemail" name="uemail" placeholder="Required" required></td>
+                    </tr>
+                    <tr>
+                        <td valign="top"><label for="umessage">Message</label></td>
+                        <td><textarea id="umessage" name="umessage" rows="5" placeholder="Share your vision..."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td align="right">
+                            <input type="submit" value="Send Message" class="form-submit">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">
+            <h1 style="font-size:1rem;color:#ccd6f6">IJ</h1>
+        </div>
+        <details class="footer-social">
+            <summary>Find Me</summary>
+            <ul>
+                <li><a href="http://instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="http://linkedin.com" target="_blank">LinkedIn</a></li>
+            </ul>
+        </details>
+        <p class="copyright">&copy; 2026. Crafted by Ira Jaiswal.</p>
+    </footer>
+
+</body>
+</html>
