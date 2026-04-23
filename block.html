@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Block Layout</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a192f;
+            --bg-secondary: #172a45;
+            --accent-pink: #ff007f;
+            --text-main: #ccd6f6;
+            --text-heading: #e6f1ff;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-subheading: 'Cinzel Decorative', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+        }
+
+        #header {
+            width: 90%;
+            margin: auto;
+            margin-top: 20px;
+            font-family: var(--font-heading);
+            font-size: 30px;
+            color: var(--text-heading);
+            background: var(--bg-secondary);
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid var(--accent-pink);
+            box-sizing: border-box;
+        }
+
+        #main {
+            width: 90%;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        #col1, #col2, #col3 {
+            width: 31%;
+            height: 480px;
+            float: left;
+            margin: 1%;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255,255,255,0.05);
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 280px;
+            border: none;
+            border-bottom: 2px solid var(--accent-pink);
+            background-color: white;
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            color: var(--text-heading);
+            font-weight: 500;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        p {
+            color: rgba(204, 214, 246, 0.7);
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .link-container {
+            text-align: center;
+            width: 100%;
+        }
+
+        a {
+            color: var(--accent-pink);
+            font-family: var(--font-subheading);
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        #footer {
+            width: 100%;
+            height: 80px;
+            color: #555;
+            background: rgba(2, 12, 27, 1);
+            text-align: center;
+            padding: 30px 20px;
+            clear: both;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        Work Layout
+    </div>
+    
+    <div id="main">
+        <div id="col1">
+            <iframe src="Form.html"></iframe>
+            <h2>Registration</h2>
+            <p>Form </p>
+            <div class="link-container">
+                <a href="Form.html">Open Full Page</a>
+            </div>
+        </div>
+
+        <div id="col2">
+            <iframe src="media2.html"></iframe>
+            <h2>Calm Nature </h2>
+            <p> Video </p>
+            <div class="link-container">
+                <a href="media2.html">Open Full Page</a>
+            </div>
+        </div>
+
+        <div id="col3">
+            <iframe src="table.html"></iframe>
+            <h2>Marksheet</h2>
+            <p>Table</p>
+            <div class="link-container">
+                <a href="table.html">Open Full Page</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer">
+        &copy; 2026. Crafted by Ira Jaiswal.
+    </div>
+
+</body>
+</html>
