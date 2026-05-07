@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ira Jaiswal | Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a192f;
+            --bg-secondary: #172a45;
+            --accent-pink: #ff007f;
+            --text-main: #ccd6f6;
+            --text-heading: #e6f1ff;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-subheading: 'Cinzel Decorative', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .top-nav {
+            background-color: rgba(2, 12, 27, 0.95);
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .top-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .top-nav a {
+            color: var(--text-main);
+            font-family: var(--font-subheading);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .top-nav a:hover {
+            color: var(--accent-pink);
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .repo-card {
+            background-color: var(--bg-secondary);
+            padding: 50px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            border-bottom: 4px solid var(--accent-pink);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .repo-card h2 {
+            font-family: var(--font-heading);
+            color: var(--text-heading);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .repo-card p {
+            color: var(--text-main);
+            font-family: var(--font-body);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        footer {
+            background-color: rgba(2, 12, 27, 1);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #555;
+            font-family: var(--font-body);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Profile.html">My Profile</a></li>
+            <li><a href="Photogallery.html">Gallery</a></li>
+            <li><a href="Practice.html">Practice Work</a></li>
+            <li><a href="Project.html">Projects</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <a href="https://irajaiswal05.github.io/project-plantify/" class="repo-card" target="_blank">
+            <h2>Project 1</h2>
+            <p></p>
+        </a>
+         <a href="https://irajaiswal05.github.io/arena_animation/" class="repo-card" target="_blank">
+            <h2>Project 2 (AOTM)</h2>
+            <p></p>
+        </a>
+    </div>
+
+    <footer>
+        <p class="copyright">&copy; 2026. Crafted by Ira Jaiswal.</p>
+    </footer>
+
+</body>
+</html>
