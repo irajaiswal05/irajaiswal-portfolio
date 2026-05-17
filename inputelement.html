@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe4e1; 
+            font-family: sans-serif;
+        }
+        
+        .calc-card {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+            width: 250px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        .input-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="number"] {
+            width: 60%;
+            padding: 8px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="number"]:focus {
+            border-color: #ffb6c1;
+        }
+
+        #r {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .btn-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            font-size: 22px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background-color: #ffb6c1;
+            color: #333;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calc-card">
+        <h2>Calculator</h2>
+        
+        <div class="input-row">
+            No 1 <input type="number" id="t1" value="0">
+        </div>
+        
+        <div class="input-row">
+            No 2 <input type="number" id="t2" value="0">
+        </div>
+        
+        <div class="input-row" style="margin-top: 20px;">
+            Result <input type="number" id="r" value="0" readonly>
+        </div>
+
+        <div class="btn-row">
+            <button onclick="f1()">+</button>
+            <button onclick="f2()">-</button>
+            <button onclick="f3()">*</button>
+            <button onclick="f4()">/</button>
+        </div>
+    </div>
+
+    <script>
+        var n1 = document.getElementById("t1")
+        var n2 = document.getElementById("t2")
+        var n3 = document.getElementById("r")
+
+        function f1() {
+            var sum = parseInt(n1.value) + parseInt(n2.value)
+            n3.value = sum
+        }
+
+        function f2() {
+            var sum = parseInt(n1.value) - parseInt(n2.value)
+            n3.value = sum
+        }
+
+        function f3() {
+            var sum = parseInt(n1.value) * parseInt(n2.value)
+            n3.value = sum
+        }
+
+        function f4() {
+            var sum = parseInt(n1.value) / parseInt(n2.value)
+            n3.value = sum
+        }
+    </script>
+</body>
+</html>
