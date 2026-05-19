@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with Date Class</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe4e1; 
+            font-family: sans-serif;
+        }
+
+        .clock-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 320px;
+        }
+
+        h1 {
+            color: #555;
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        #clock {
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 45px;
+            font-weight: bold;
+            font-family: monospace;
+            padding: 20px;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .btn-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        button {
+            flex: 1;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background-color: #ffb6c1;
+            color: #333;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="clock-card">
+        <h1>Date Class in JS</h1>
+        <div id="clock">00:00:00</div>
+        
+        <div class="btn-row">
+            <button onclick="st()">Start Clock</button>
+            <button onclick="sto()">Stop Clock</button>
+        </div>
+    </div>
+
+    <script>
+        function show() {
+            var d = new Date()
+            var t = document.getElementById("clock")
+            t.innerHTML = d.toLocaleTimeString()
+        }
+
+        var timer
+        function st() {
+            timer = setInterval("show()", 1000)
+        }
+
+        function sto() {
+            clearInterval(timer)
+        }
+        
+        document.title = "No Error"
+    </script>
+</body>
+</html>
