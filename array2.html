@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffe4e1 0%, #ffb6c1 100%);
+            margin: 0;
+            padding: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(216, 27, 96, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #d81b60;
+            margin-top: 0;
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 28px;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+        }
+
+        #gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .mystyle {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(216, 27, 96, 0.15);
+            transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .mystyle:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(216, 27, 96, 0.3);
+            border-color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-panel">
+        <h1>Gallery</h1>
+        <div id="gallery-grid"></div>
+    </div>
+
+    <script>
+        var pic = [
+            "images/bell.jpg", 
+            "images/lily.jpg", 
+            "images/lotus.jpg", 
+            "images/sun.jpg",
+            "images/lav.jpg"
+        ];
+        
+        var gallery = document.getElementById("gallery-grid");
+        var htmlContent = "";
+
+        for(var i = 0; i < pic.length; i++) {
+            htmlContent += "<img class='mystyle' src='" + pic[i] + "'>";
+        }
+
+        gallery.innerHTML = htmlContent;
+        document.title = "Gallery";
+    </script>
+</body>
+</html>
