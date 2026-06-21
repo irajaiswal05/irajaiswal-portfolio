@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #fce4ec 0%, #ffb6c1 100%);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', sans-serif;
+            color: #333;
+        }
+
+        .ui-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(216, 27, 96, 0.2);
+            text-align: center;
+            min-width: 300px;
+        }
+
+        .ui-card a {
+            color: #d81b60;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 28px;
+            transition: 0.3s;
+        }
+
+        .ui-card a:hover {
+            color: #ad144b;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ui-card" id="displayArea">
+        <h2>System Authenticating...</h2>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            
+            var pw = "abc@123";
+            var response;
+            var turn = 0;
+            var displayArea = document.getElementById("displayArea");
+
+            do {
+                response = prompt("Enter Password to DownLoad....");
+
+                if (response == pw) {
+                    alert("✅ Valid password");
+                    displayArea.innerHTML = "<h1><a href='ddata.pdf'>Download File</a></h1>";
+                    break;
+                }
+
+                if (turn >= 3) {
+                    alert("❌ Access Denied");
+                    displayArea.innerHTML = "<h2 style='color: #dc3545;'>Access Denied</h2>";
+                }
+
+                turn++;
+
+            } while (turn <= 3);
+
+            document.title = "Ready";
+
+        }, 500); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background: linear-gradient(135deg, #fce4ec 0%, #ffb6c1 100%);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 60px;
+            font-family: 'Segoe UI', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .ui-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 25px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(216, 27, 96, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .banner {
+            width: 800px;
+            height: 450px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .banner img.active {
+            display: block;
+        }
+        
+        .radios {
+            text-align: center;
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .radios input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #de4f84;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onLoad="show()">
+
+    <div class="ui-card">
+        
+        <div class="banner">
+            <img src="images/p1.jpg" id="p" class="active">
+        </div>
+
+        <div class="radios">
+            <input type="radio" name="slide" id="r1">
+            <input type="radio" name="slide" id="r2">
+            <input type="radio" name="slide" id="r3">
+            <input type="radio" name="slide" id="r4">
+        </div>
+
+    </div>
+
+    <script>
+        var p = document.getElementById("p");
+        var s = document.getElementsByName("slide");
+        var c = 0;
+
+        s[c].checked = true;
+
+        var t;
+
+        function show() {
+            if (c <= s.length - 1) {
+                c++;
+            } else {
+                c = 1;
+            }
+            
+            p.src = "images/p" + c + ".jpg";
+            s[c - 1].checked = true;
+
+            document.title = c;
+            t = setTimeout("show()", 1000);
+
+            s[0].onclick = function() {
+                clearTimeout(t);
+                setTimeout("p.src='images/p1.jpg'", 1000);
+                c = 1;
+                setTimeout("show()", 6000);
+            }
+
+            s[1].onclick = function() {
+                clearTimeout(t);
+                setTimeout("p.src='images/p2.jpg'", 1000);
+                c = 2;
+                setTimeout("show()", 6000);
+            }
+
+            s[2].onclick = function() {
+                clearTimeout(t);
+                setTimeout("p.src='images/p3.jpg'", 1000);
+                c = 3;
+                setTimeout("show()", 6000);
+            }
+
+            s[3].onclick = function() {
+                clearTimeout(t);
+                setTimeout("p.src='images/p4.jpg'", 1000);
+                c = 4;
+                setTimeout("show()", 6000);
+            }
+        }
+    </script>
+</body>
+</html>
