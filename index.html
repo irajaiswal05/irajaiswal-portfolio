@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ira Jaiswal | UI/UX Portfolio</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-primary: #0a192f;
-            --bg-secondary: #172a45;
-            --accent-pink: #ff007f;
-            --accent-light: #ffd1dc;
-            --text-main: #ccd6f6;
-            --text-heading: #e6f1ff;
-            --font-heading: 'Cormorant Garamond', serif;
-            --font-subheading: 'Cinzel Decorative', serif;
-            --font-body: 'Poppins', sans-serif;
+            --bg-outer: #D0D48D;      
+            --bg-paper: #FFFDF6;      
+            --accent-lavender: #A8B1E6;
+            --accent-orange: #F99E75;
+            --accent-pink: #ffb6c1;
+            --text-main: #382214;     
+            --grid-line: #C4C9F0;     
+            --font-heading: 'Fredoka', sans-serif;
+            --font-body: 'Quicksand', sans-serif;
         }
 
         * {
@@ -26,265 +27,521 @@
             padding: 0;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-primary);
+            background-color: var(--bg-outer);
             color: var(--text-main);
             font-family: var(--font-body);
             line-height: 1.6;
             overflow-x: hidden;
+            padding: 40px 20px;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: var(--font-heading);
-            color: var(--text-heading);
-            font-weight: 500;
+            color: var(--text-main);
+            letter-spacing: 1px;
         }
 
         a { text-decoration: none; transition: 0.3s; }
 
+        .notebook-paper {
+            background-color: var(--bg-paper);
+            background-image: 
+                linear-gradient(var(--grid-line) 2px, transparent 2px),
+                linear-gradient(90deg, var(--grid-line) 2px, transparent 2px);
+            background-size: 40px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 20px;
+            border: 3px solid var(--text-main);
+            box-shadow: 15px 15px 0px rgba(56, 34, 20, 0.15); 
+            overflow: hidden;
+            position: relative;
+        }
+
         .top-nav {
-            background-color: rgba(2, 12, 27, 0.95);
+            background-color: rgba(255, 253, 246, 0.95);
             padding: 15px 0;
             text-align: center;
-            position: sticky; top: 0; z-index: 1000;
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
             backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            border-bottom: 3px solid var(--text-main);
         }
 
         .top-nav ul {
             list-style: none;
-            display: flex; flex-wrap: wrap; justify-content: center;
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center;
         }
 
-        .top-nav li {
-            margin: 5px 15px;
-        }
+        .top-nav li { margin: 5px 15px; }
 
         .top-nav a {
             color: var(--text-main);
-            font-family: var(--font-subheading);
-            font-size: 0.9rem;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
             text-transform: uppercase;
+            font-weight: 500;
+            position: relative;
         }
 
-        .top-nav a:hover {
-            color: var(--accent-pink);
+        .top-nav a:hover { color: var(--accent-orange); }
+
+        .about-hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            padding: 80px 40px;
+            max-width: 1050px;
+            margin: 0 auto;
         }
 
-        .top-banner {
-            height: 90vh;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            text-align: center; padding: 20px;
-            background: radial-gradient(circle at center, #112240 0%, #0a192f 70%);
+        .hero-text {
+            flex: 1;
+            min-width: 320px;
         }
 
-        .top-banner h1 {
-            font-size: 2.5rem; margin-bottom: 10px;
-            text-shadow: none;
+        .hero-text h2 {
+            font-size: 1.8rem;
+            color: var(--accent-orange);
+            margin-bottom: 5px;
+            display: inline-block;
+            background: var(--bg-paper);
+            border: 2px solid var(--text-main);
+            padding: 5px 15px;
+            border-radius: 20px;
+            transform: rotate(-2deg);
+            box-shadow: 4px 4px 0px var(--accent-lavender);
         }
 
-        @keyframes tickerLoop {
-            0% { content: "UI/UX DESIGNER"; opacity: 1; }
-            30% { opacity: 0; }
-            35% { content: "GRAPHIC DESIGNER"; opacity: 1; }
-            65% { opacity: 0; }
-            70% { content: "VISUAL THINKER"; opacity: 1; }
-            95% { opacity: 0; }
-            100% { opacity: 1; }
+        .hero-text h1 {
+            font-size: 4rem;
+            margin: 15px 0;
+            color: var(--accent-lavender);
+            text-shadow: 4px 4px 0px var(--text-main);
+            line-height: 1.1;
         }
 
-        .ticker-text {
+        .hero-text p {
             font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .toolkit-wave {
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            padding: 15px 0;
+            position: relative;
+            border-top: 2px dashed var(--accent-lavender);
+            border-bottom: 2px dashed var(--accent-lavender);
+        }
+
+        .wave-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+            animation: flowLeft 12s linear infinite;
+        }
+
+        .tool-pill {
+            background-color: var(--bg-paper);
+            border: 2px solid var(--text-main);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            box-shadow: 3px 3px 0px var(--accent-orange);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @keyframes flowLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+
+        .tool-pill:nth-child(odd) {
+            animation: bobUp 3s ease-in-out infinite;
+        }
+
+        .tool-pill:nth-child(even) {
+            animation: bobDown 3s ease-in-out infinite;
+        }
+
+        @keyframes bobUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        @keyframes bobDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(4px); }
+        }
+
+        .hero-image {
+            width: 300px;
+            height: 350px;
+            background-color: white;
+            padding: 15px 15px 60px 15px;
+            border: 3px solid var(--text-main);
+            box-shadow: 12px 12px 0px var(--accent-lavender);
+            transform: rotate(4deg);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-5deg);
+            width: 100px;
+            height: 35px;
+            background-color: rgba(244, 240, 230, 0.9);
+            border: 2px solid var(--text-main);
+            z-index: 5;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 2px solid var(--text-main);
+        }
+
+        .hero-image:hover { transform: rotate(-2deg) scale(1.05); z-index: 20; }
+
+        .action-btn {
+            display: inline-block;
+            background-color: var(--accent-lavender);
             color: var(--text-main);
-            font-weight: 300;
-            letter-spacing: 4px;
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            padding: 15px 30px;
+            border: 3px solid var(--text-main);
+            border-radius: 12px;
+            box-shadow: 6px 6px 0px var(--text-main);
+            transition: 0.2s;
             text-transform: uppercase;
         }
 
-        .ticker-text::after {
-            content: "";
-            animation: tickerLoop 10s infinite;
-            color: var(--accent-pink);
-            font-weight: 600;
+        .action-btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px var(--text-main);
+            background-color: var(--accent-orange);
         }
 
         .work-container {
-            width: 90%; max-width: 1200px; margin: auto; padding: 60px 0;
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 60px 20px 80px 20px;
+            text-align: center;
         }
 
         .section-heading {
-            font-family: var(--font-subheading);
-            color: var(--text-heading);
-            text-align: center; margin-bottom: 50px; font-size: 1.8rem;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            text-align: center;
             text-transform: uppercase;
         }
 
         .work-grid {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
         }
 
-        .work-card {
-            background-color: var(--bg-secondary);
+        .scrapbook-card {
+            background-color: #ffffff;
             width: 100%;
-            height: 300px; padding: 20px;
-            display: flex; flex-direction: column; justify-content: flex-end;
-            border-bottom: 3px solid transparent;
+            max-width: 450px;
+            padding: 15px 15px 30px 15px;
+            border: 3px solid var(--text-main);
+            position: relative;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: block;
+            color: var(--text-main);
         }
 
-        .work-card:hover {
-            border-color: var(--accent-pink);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        .scrapbook-card:nth-child(1) { transform: rotate(-2deg); box-shadow: 10px 10px 0px var(--accent-lavender); }
+        .scrapbook-card:nth-child(2) { transform: rotate(3deg); box-shadow: 10px 10px 0px var(--accent-orange); }
+
+        .scrapbook-card:hover {
+            transform: rotate(0deg) translateY(-10px);
+            box-shadow: 15px 15px 0px var(--text-main);
+            z-index: 10;
         }
 
-        .work-card h3 {
-            font-family: var(--font-body); font-weight: 600;
-            font-size: 1.3rem; letter-spacing: 0;
+        .scrapbook-card::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-3deg);
+            width: 110px;
+            height: 35px;
+            background-color: #f4f0e6;
+            border: 2px solid var(--text-main);
+            opacity: 0.9;
+            z-index: 5;
         }
 
-        .work-card p {
-            color: #888; font-size: 0.9rem;
+        .card-photo {
+            width: 100%;
+            height: 280px;
+            border: 2px solid var(--text-main);
+            overflow: hidden;
+            margin-bottom: 15px;
+            background-color: var(--bg-outer);
         }
+
+        .card-photo img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
+        .scrapbook-card:hover .card-photo img { transform: scale(1.05); }
+
+        .card-text h3 { font-size: 2rem; margin-bottom: 5px; }
+        .card-text p { font-family: var(--font-body); font-weight: 600; font-size: 1.1rem; }
 
         .contact-section {
-            background-color: var(--bg-secondary); padding: 80px 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 80px 20px;
+            border-top: 4px dashed var(--text-main);
+            background: rgba(255, 255, 255, 0.4);
+            text-align: center;
         }
 
-        .contact-form table {
-            width: 100%; max-width: 600px; margin: auto;
-            border: 0;
-        }
-
-        .contact-form td { padding: 10px; vertical-align: middle; }
+        .contact-form table { width: 100%; max-width: 600px; margin: auto; border: 0; }
+        .contact-form td { padding: 12px; vertical-align: middle; text-align: left; }
 
         .contact-form label {
-            color: var(--text-heading); font-family: var(--font-subheading);
-            font-size: 0.8rem; text-transform: uppercase;
+            color: var(--text-main); 
+            font-family: var(--font-heading);
+            font-size: 1.2rem; 
         }
 
         .contact-form input, .contact-form textarea {
-            width: 100%; padding: 15px;
-            background-color: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: var(--text-main); font-family: var(--font-body);
+            width: 100%; 
+            padding: 15px;
+            background-color: #ffffff;
+            border: 3px solid var(--text-main);
+            border-radius: 8px;
+            color: var(--text-main); 
+            font-family: var(--font-body);
+            font-weight: 600;
+            box-shadow: 5px 5px 0px var(--accent-lavender);
+            transition: 0.2s;
         }
 
         .contact-form input:focus, .contact-form textarea:focus {
-            outline: none; border-color: var(--accent-pink);
+            outline: none; 
+            border-color: var(--accent-orange);
+            box-shadow: 5px 5px 0px var(--accent-orange);
+            transform: translate(-2px, -2px);
         }
 
         .form-submit {
-            padding: 15px 40px; border: 2px solid var(--accent-pink);
-            background: var(--accent-pink); color: white;
-            font-family: var(--font-subheading); cursor: pointer;
-            font-weight: 600;
+            padding: 15px 35px; 
+            border: 3px solid var(--text-main);
+            background: var(--accent-orange); 
+            color: var(--text-main);
+            font-family: var(--font-heading); 
+            cursor: pointer;
+            font-size: 1.3rem;
+            border-radius: 8px;
+            box-shadow: 6px 6px 0px var(--text-main);
+            transition: 0.2s;
+            text-transform: uppercase;
         }
 
         .form-submit:hover { 
-            background: transparent;
-            color: var(--accent-pink);
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px var(--text-main);
+            background-color: var(--accent-lavender);
         }
 
         footer {
-            background-color: rgba(2, 12, 27, 1);
-            padding: 60px 20px; text-align: center;
+            padding: 60px 20px; 
+            text-align: center;
+            border-top: 4px dashed var(--text-main);
+            background: var(--accent-pink);
         }
 
-        .footer-logo { font-size: 1.5rem; margin-bottom: 20px; }
-
-        .footer-social summary {
-            font-family: var(--font-subheading); color: var(--text-heading);
-            cursor: pointer; list-style: none; margin-bottom: 20px;
-            font-weight: 500;
+        .footer-logo h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 20px; 
+            color: var(--accent-lavender);
+            text-shadow: 3px 3px 0px var(--text-main);
         }
 
-        .footer-social ul { list-style: none; display: flex; justify-content: center; gap: 20px; }
-        .footer-social a { color: #888; font-size: 1.2rem; }
-        .footer-social a:hover { color: var(--accent-pink); }
+        .footer-social { margin-bottom: 30px; }
 
-        .copyright { font-size: 0.8rem; color: #555; margin-top: 40px; }
-
-        @media only screen and (min-width: 600px) {
-            .work-card { width: 45%; } 
+        .social-icons { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            margin-top: 10px;
+        }
+        
+        .social-icons a { 
+            color: var(--text-main); 
+            font-size: 2rem; 
+            background: var(--bg-paper);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--text-main);
+            border-radius: 50%;
+            box-shadow: 4px 4px 0px var(--accent-orange);
+            transition: 0.3s;
+        }
+        
+        .social-icons a:hover { 
+            background: var(--accent-lavender);
+            transform: translateY(-5px);
+            box-shadow: 6px 8px 0px var(--text-main);
         }
 
-        @media only screen and (min-width: 768px) {
-            .top-banner h1 { font-size: 3.5rem; }
-            .ticker-text { font-size: 1.5rem; }
-            .top-nav a { font-size: 1.1rem; }
-            .work-card { width: calc(33.33% - 20px); }
-        }
-
-        @media only screen and (min-width: 992px) {
-            .work-card { width: calc(25% - 23px); } 
+        .copyright { 
+            font-size: 1.1rem; 
+            font-weight: 600;
+            color: var(--text-main); 
         }
     </style>
 </head>
 <body>
 
-    <nav class="top-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Profile.html">My Profile</a></li>
-            <li><a href="Practice.html">Practice Work</a></li>
-            <li><a href="#form-section">Contact</a></li>
-             <li><a href="project.html">Project</a></li>
-        </ul>
-    </nav>
-
-    <header class="top-banner">
-        <h1>IRA JAISWAL.</h1>
-        <div class="ticker-text">I am a&nbsp;</div>
-    </header>
-
-
-    <section id="form-section" class="contact-section">
-        <h2 class="section-heading">Get In Touch</h2>
-        <div class="contact-form">
-            <form action="#" method="post">
-                <table>
-                    <tr>
-                        <td><label for="fname">First Name</label></td>
-                        <td><input type="text" id="fname" name="fname" placeholder="Required" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="uemail">Your Email</label></td>
-                        <td><input type="email" id="uemail" name="uemail" placeholder="Required" required></td>
-                    </tr>
-                    <tr>
-                        <td valign="top"><label for="umessage">Message</label></td>
-                        <td><textarea id="umessage" name="umessage" rows="5" placeholder="Share your vision..."></textarea></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td align="right">
-                            <input type="submit" value="Send Message" class="form-submit">
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-logo">
-            <h1 style="font-size:1rem;color:#ccd6f6">IJ</h1>
-        </div>
-        <details class="footer-social">
-            <summary>Find Me</summary>
+    <div class="notebook-paper">
+        
+        <nav class="top-nav">
             <ul>
-                <li><a href="http://instagram.com" target="_blank">Instagram</a></li>
-                <li><a href="http://linkedin.com" target="_blank">LinkedIn</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Practice.html">Practice Work</a></li>
+                <li><a href="Project.html">Project</a></li>
+                <li><a href="#form-section">Contact</a></li>
+                
             </ul>
-        </details>
-        <p class="copyright">&copy; 2026. Crafted by Ira Jaiswal.</p>
-    </footer>
+        </nav>
+
+        <section class="about-hero">
+            <div class="hero-text">
+                <h2>HELLO! I AM IRA </h2>
+                <h1>Designs That<br>Bring Ideas<br>to Life.</h1>
+                <p> 
+                    I am a UI/UX & Graphic Designer focused on crafting thoughtful digital experiences 
+                    where creativity meets functionality. Balancing my BCA degree with advanced digital studies, 
+                    I enjoy exploring branding, visual storytelling, and user-centered design to create work that is 
+                    both impactful and memorable.
+                </p>
+                
+                <div class="toolkit-wave">
+                    <div class="wave-track">
+                        <span class="tool-pill"><i class="fa-brands fa-figma"></i> Figma</span>
+                        <span class="tool-pill">🎨 Illustrator</span>
+                        <span class="tool-pill">📸 Photoshop</span>
+                        <span class="tool-pill">📘 InDesign</span>
+                        <span class="tool-pill">🖌️ CorelDRAW</span>
+                        
+                        <span class="tool-pill"><i class="fa-brands fa-figma"></i> Figma</span>
+                        <span class="tool-pill">🎨 Illustrator</span>
+                        <span class="tool-pill">📸 Photoshop</span>
+                        <span class="tool-pill">📘 InDesign</span>
+                        <span class="tool-pill">🖌️ CorelDRAW</span>
+                    </div>
+                </div>
+
+                <a href="#projects-section" class="action-btn">Explore My Work</a>
+            </div>
+
+            <div class="hero-image">
+                <img src="pfp2.jpeg" alt="Ira Jaiswal Profile Picture">
+            </div>
+        </section>
+
+        <section id="projects-section" class="work-container">
+            <h2 class="section-heading">Featured Work</h2>
+            <div class="work-grid">
+                
+                <a href="https://irajaiswal05.github.io/project-plantify/" class="scrapbook-card" target="_blank">
+                    <div class="card-photo">
+                        <img src="images/plantify.png" alt="Plantify App UI">
+                    </div>
+                    <div class="card-text">
+                        <h3>Plantify</h3>
+                        <p>Digital interface & UI/UX case study</p>
+                    </div>
+                </a>
+
+                <a href="https://irajaiswal05.github.io/arena_animation/" class="scrapbook-card" target="_blank">
+                    <div class="card-photo">
+                        <img src="images/arena.png" alt="Arena Animation Projects">
+                    </div>
+                    <div class="card-text">
+                        <h3>Arena Animation</h3>
+                        <p>Aotm Work</p>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <section id="form-section" class="contact-section">
+            <h2 class="section-heading">Get In Touch</h2>
+            <div class="contact-form">
+                <form action="#" method="post">
+                    <table>
+                        <tr>
+                            <td><label for="fname">First Name</label></td>
+                            <td><input type="text" id="fname" name="fname" placeholder="Required" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="uemail">Your Email</label></td>
+                            <td><input type="email" id="uemail" name="uemail" placeholder="Required" required></td>
+                        </tr>
+                        <tr>
+                            <td valign="top"><label for="umessage">Message</label></td>
+                            <td><textarea id="umessage" name="umessage" rows="5" placeholder="Share your vision..."></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td align="right">
+                                <input type="submit" value="Send Message" class="form-submit">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-logo">
+                <h1>IJ</h1>
+            </div>
+            <div class="footer-social">
+                <div class="social-icons">
+                    <a href="YOUR_LINKEDIN_URL" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="YOUR_BEHANCE_URL" target="_blank"><i class="fa-brands fa-behance"></i></a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2026. Crafted by Ira Jaiswal.</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>

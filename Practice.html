@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ira Jaiswal | Practice Files</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-primary: #0a192f;
-            --bg-secondary: #172a45;
-            --accent-pink: #ff007f;
-            --text-main: #ccd6f6;
-            --text-heading: #e6f1ff;
-            --font-heading: 'Cormorant Garamond', serif;
-            --font-subheading: 'Cinzel Decorative', serif;
-            --font-body: 'Poppins', sans-serif;
+            --bg-outer: #D0D48D;      
+            --bg-paper: #FFFDF6;      
+            --accent-lavender: #A8B1E6;
+            --accent-orange: #F99E75;
+            --accent-pink: #ffb6c1;
+            --text-main: #382214;     
+            --grid-line: #C4C9F0;     
+            --font-heading: 'Fredoka', sans-serif;
+            --font-body: 'Quicksand', sans-serif;
         }
 
         * {
@@ -25,328 +27,473 @@
             padding: 0;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-primary);
+            background-color: var(--bg-outer);
             color: var(--text-main);
             font-family: var(--font-body);
             line-height: 1.6;
             overflow-x: hidden;
+            padding: 40px 20px;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: var(--font-heading);
-            color: var(--text-heading);
-            font-weight: 500;
+            color: var(--text-main);
+            letter-spacing: 1px;
         }
 
         a { text-decoration: none; transition: 0.3s; }
 
+        .notebook-paper {
+            background-color: var(--bg-paper);
+            background-image: 
+                linear-gradient(var(--grid-line) 2px, transparent 2px),
+                linear-gradient(90deg, var(--grid-line) 2px, transparent 2px);
+            background-size: 40px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 20px;
+            border: 3px solid var(--text-main);
+            box-shadow: 15px 15px 0px rgba(56, 34, 20, 0.15); 
+            overflow: hidden;
+            position: relative;
+        }
+
         .top-nav {
-            background-color: rgba(2, 12, 27, 0.95);
+            background-color: rgba(255, 253, 246, 0.95);
             padding: 15px 0;
             text-align: center;
-            position: sticky; top: 0; z-index: 1000;
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
             backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            border-bottom: 3px solid var(--text-main);
         }
 
         .top-nav ul {
             list-style: none;
-            display: flex; flex-wrap: wrap; justify-content: center;
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center;
         }
 
-        .top-nav li {
-            margin: 5px 15px;
-        }
+        .top-nav li { margin: 5px 15px; }
 
         .top-nav a {
             color: var(--text-main);
-            font-family: var(--font-subheading);
-            font-size: 0.9rem;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
             text-transform: uppercase;
+            font-weight: 500;
+            position: relative;
         }
 
-        .top-nav a:hover {
-            color: var(--accent-pink);
-        }
+        .top-nav a:hover { color: var(--accent-orange); }
 
         .page-header {
-            padding: 80px 20px 40px;
+            padding: 60px 20px 40px;
             text-align: center;
         }
 
         .page-header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 10px;
-        }
-
-        .page-header p {
-            color: var(--accent-pink);
-            font-family: var(--font-subheading);
-            letter-spacing: 2px;
+            color: var(--accent-lavender);
+            text-shadow: 3px 3px 0px var(--text-main);
             text-transform: uppercase;
         }
 
-        .practice-container {
-            width: 90%;
-            max-width: 800px;
-            margin: 0 auto 100px;
-            padding: 20px;
+        .page-header p {
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: var(--accent-orange);
+            display: inline-block;
+            padding: 5px 20px;
+            border: 2px solid var(--text-main);
+            border-radius: 20px;
+            transform: rotate(-2deg);
         }
 
-        .practice-list {
+        .inner-canvas {
+            background-color: #ffffff;
+            border: 3px solid var(--text-main);
+            border-radius: 15px;
+            margin: 0 30px 60px 30px;
+            padding: 50px 30px;
+            box-shadow: 10px 10px 0px var(--accent-lavender);
+        }
+
+        .back-btn {
+            display: inline-block;
+            background-color: #fffcab;
+            color: var(--text-main);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            padding: 8px 20px;
+            border: 2px dashed var(--text-main);
+            border-radius: 5px;
+            box-shadow: 4px 4px 0px var(--text-main);
+            margin-bottom: 40px;
+            transform: rotate(-2deg);
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: rotate(0deg) translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--text-main);
+            background-color: var(--accent-orange);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 4px dashed var(--accent-pink);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-header-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .pinboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .practice-note {
+            background-color: #fffcab;
+            padding: 30px 15px 20px 15px;
+            border: 2px solid var(--text-main);
+            border-radius: 2px 15px 15px 15px;
+            box-shadow: 5px 5px 0px var(--text-main);
+            text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-        }
-
-        .practice-item {
-            background-color: var(--bg-secondary);
-            padding: 25px 30px;
-            border-radius: 5px;
-            border-left: 3px solid transparent;
-            display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            color: var(--text-heading);
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .practice-note:nth-child(4n+1) { background-color: #fffcab; transform: rotate(-3deg); }
+        .practice-note:nth-child(4n+2) { background-color: var(--accent-pink); transform: rotate(2deg); }
+        .practice-note:nth-child(4n+3) { background-color: var(--accent-lavender); transform: rotate(-1deg); }
+        .practice-note:nth-child(4n) { background-color: var(--bg-paper); transform: rotate(3deg); }
+
+        .practice-note::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-4deg);
+            width: 45px;
+            height: 20px;
+            background-color: rgba(244, 240, 230, 0.9);
+            border: 2px solid var(--text-main);
+            z-index: 2;
+        }
+
+        .practice-note:nth-child(even)::before {
+            transform: translateX(-50%) rotate(5deg);
+            background-color: var(--accent-orange);
+        }
+
+        .practice-note:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 8px 8px 0px var(--text-main);
+            z-index: 10;
+        }
+
+        .note-number {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+
+        .note-title {
+            font-family: var(--font-body);
+            font-weight: 700;
             font-size: 1.1rem;
-            font-weight: 400;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .practice-item:hover {
-            border-left-color: var(--accent-pink);
-            background-color: rgba(255, 0, 127, 0.05);
-            transform: translateX(10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-            color: white;
-        }
-
-        .practice-arrow {
-            color: var(--accent-pink);
-            font-family: var(--font-subheading);
-            font-size: 1.5rem;
-            transition: 0.3s;
-        }
-
-        .practice-item:hover .practice-arrow {
-            transform: translateX(5px);
+            word-wrap: break-word;
+            width: 100%;
         }
 
         footer {
-            background-color: rgba(2, 12, 27, 1);
-            padding: 60px 20px; text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 60px 20px; 
+            text-align: center;
+            border-top: 4px dashed var(--text-main);
+            background: var(--accent-pink);
         }
 
-        .footer-logo { font-size: 1.5rem; margin-bottom: 20px; }
+        .footer-logo h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 20px; 
+            color: var(--accent-lavender);
+            text-shadow: 3px 3px 0px var(--text-main);
+        }
 
-        .copyright { font-size: 0.8rem; color: #555; }
+        .footer-social { margin-bottom: 30px; }
+
+        .social-icons { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            margin-top: 10px;
+        }
+        
+        .social-icons a { 
+            color: var(--text-main); 
+            font-size: 2rem; 
+            background: var(--bg-paper);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--text-main);
+            border-radius: 50%;
+            box-shadow: 4px 4px 0px var(--accent-orange);
+            transition: 0.3s;
+        }
+        
+        .social-icons a:hover { 
+            background: var(--accent-lavender);
+            transform: translateY(-5px);
+            box-shadow: 6px 8px 0px var(--text-main);
+        }
+
+        .copyright { 
+            font-size: 1.1rem; 
+            font-weight: 600;
+            color: var(--text-main); 
+        }
+
+        @media only screen and (max-width: 600px) {
+            .inner-canvas {
+                margin: 0 10px 40px 10px;
+                padding: 30px 15px;
+            }
+            .pinboard-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            }
+        }
     </style>
 </head>
 <body>
 
-    <nav class="top-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Profile.html">My Profile</a></li>
-            <li><a href="Practice.html">Practice Work</a></li>
-            <li><a href="index.html#form-section">Contact</a></li>
-            <li><a href="Project.html">Projects</a></li>
-        </ul>
-    </nav>
-
-    <header class="page-header">
-        <h1>Class Assignments</h1>
+    <div class="notebook-paper">
         
-    </header>
-
-    <main class="practice-container">
-        <div class="practice-list">
-
-            <a href="Register.html" target="_blank" class="practice-item">
-                <span>01. Registration</span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-
-            <a href="responsive.html" target="_blank" class="practice-item">
-                <span>02. Responsive </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-
-            <a href="index.html" target="_blank" class="practice-item">
-                <span>03. Index</span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-
-            <a href="bookmark.html" target="_blank" class="practice-item">
-                <span>04. bookmark</span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-
-            <a href="class.html" target="_blank" class="practice-item">
-                <span>05. Class</span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-
-            <a href="Photogallery.html" target="_blank" class="practice-item">
-                <span>06.PhotoGallery</span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-
-            <a href="list.html" target="_blank" class="practice-item">
-                <span>07. list</span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-             <a href="Form.html" target="_blank" class="practice-item">
-                <span>08.Form</span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-              <a href="runningbanner.html" target="_blank" class="practice-item">
-                <span>09. Runningbanner </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-             <a href="table.html" target="_blank" class="practice-item">
-                <span>10. Table </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-             <a href="media.html" target="_blank" class="practice-item">
-                <span>11.Media </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-            <a href="media2.html" target="_blank" class="practice-item">
-                <span>12.media2 </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-              <a href="block.html" target="_blank" class="practice-item">
-                <span>13.Block Layout </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-        </div>
-    </main>
-    
-    <header class="page-header">
-        <h2>Java Script Assignments</h2>
-        
-    </header>
-     <main class="practice-container">
-        <div class="practice-list">
-             <a href="second.html" target="_blank" class="practice-item">
-                <span>1.second </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-             <a href="creatediv.html" target="_blank" class="practice-item">
-                <span>2.creatediv </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-          <a href="createelement.html" target="_blank" class="practice-item">
-                <span>3.createelement </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-            <a href="mylib.js" target="_blank" class="practice-item">
-                <span>4.mylib </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-            <a href="usinglib.html" target="_blank" class="practice-item">
-                <span>5.usinglib </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-               <a href="color.html" target="_blank" class="practice-item">
-                <span>6.Color</span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-               <a href="inputelement.html" target="_blank" class="practice-item">
-                <span>7.inputelement </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-            <a href="date.html" target="_blank" class="practice-item">
-                <span>8.date </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-             <a href="loop1.html" target="_blank" class="practice-item">
-                <span>9.loop1 </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-             <a href="loop2.html" target="_blank" class="practice-item">
-                <span>10.loop2 </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-            <a href="color2.html" target="_blank" class="practice-item">
-                <span>11.color2 </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-            <a href="color3.html" target="_blank" class="practice-item">
-                <span>12.color3 </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-             <a href="whileloop.html" target="_blank" class="practice-item">
-                <span>13.whileloop </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-             <a href="whileloop2.html" target="_blank" class="practice-item">
-                <span>14.whileloop2 </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-             <a href="array.html" target="_blank" class="practice-item">
-                <span>15.array </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-            <a href="array2.html" target="_blank" class="practice-item">
-                <span>16.array2 </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-            <a href="createpop.html" target="_blank" class="practice-item">
-                <span>17.createpop </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-            <a href="redirection.html" target="_blank" class="practice-item">
-                <span>18.redirection </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-             <a href="button.html" target="_blank" class="practice-item">
-                <span>19.button </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-             <a href="whileloop3.html" target="_blank" class="practice-item">
-                <span>20.whileloop3 </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-              <a href="banner.html" target="_blank" class="practice-item">
-                <span>21.banner </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-              <a href="banner_with_button.html" target="_blank" class="practice-item">
-                <span>22.banner_with_button</span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-              <a href="dowhileloop.html" target="_blank" class="practice-item">
-                <span>23.dowhileloop </span>
-                <span class="practice-arrow">&rarr;</span>
-            </a>
-        </div>
-    </main>
-
-
-
-
-
-    <footer>
-        <div class="footer-logo">
-            <h1 style="font-size:1rem;color:#ccd6f6">IJ</h1>
-        </div>
-        <details class="footer-social">
-            <summary>Find Me</summary>
+        <nav class="top-nav">
             <ul>
-                <li><a href="http://instagram.com" target="_blank">Instagram</a></li>
-                <li><a href="https://www.behance.net/" target="_blank">Behance</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Practice.html">Practice Work</a></li>
+                <li><a href="index.html#form-section">Contact</a></li>
+                <li><a href="Project.html">Project</a></li>
             </ul>
-        </details>
-        <p class="copyright">&copy; 2026. Crafted by Ira Jaiswal.</p>
-    </footer>
+        </nav>
+
+        <header class="page-header">
+            <h1>Practice Work</h1>
+            <p>Experiments & Layouts</p>
+        </header>
+
+        <div class="inner-canvas">
+            
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+
+            <div class="section-header-container">
+                <h2 class="section-title">Class Assignments</h2>
+            </div>
+
+            <div class="pinboard-grid">
+                <a href="Register.html" target="_blank" class="practice-note">
+                    <span class="note-number">01</span>
+                    <span class="note-title">Registration</span>
+                </a>
+                <a href="responsive.html" target="_blank" class="practice-note">
+                    <span class="note-number">02</span>
+                    <span class="note-title">Responsive</span>
+                </a>
+                <a href="index.html" target="_blank" class="practice-note">
+                    <span class="note-number">03</span>
+                    <span class="note-title">Index</span>
+                </a>
+                <a href="bookmark.html" target="_blank" class="practice-note">
+                    <span class="note-number">04</span>
+                    <span class="note-title">Bookmark</span>
+                </a>
+                <a href="class.html" target="_blank" class="practice-note">
+                    <span class="note-number">05</span>
+                    <span class="note-title">Class</span>
+                </a>
+                <a href="Photogallery.html" target="_blank" class="practice-note">
+                    <span class="note-number">06</span>
+                    <span class="note-title">PhotoGallery</span>
+                </a>
+                <a href="list.html" target="_blank" class="practice-note">
+                    <span class="note-number">07</span>
+                    <span class="note-title">List</span>
+                </a>
+                <a href="Form.html" target="_blank" class="practice-note">
+                    <span class="note-number">08</span>
+                    <span class="note-title">Form</span>
+                </a>
+                <a href="runningbanner.html" target="_blank" class="practice-note">
+                    <span class="note-number">09</span>
+                    <span class="note-title">Runningbanner</span>
+                </a>
+                <a href="table.html" target="_blank" class="practice-note">
+                    <span class="note-number">10</span>
+                    <span class="note-title">Table</span>
+                </a>
+                <a href="media.html" target="_blank" class="practice-note">
+                    <span class="note-number">11</span>
+                    <span class="note-title">Media</span>
+                </a>
+                <a href="media2.html" target="_blank" class="practice-note">
+                    <span class="note-number">12</span>
+                    <span class="note-title">Media 2</span>
+                </a>
+                <a href="block.html" target="_blank" class="practice-note">
+                    <span class="note-number">13</span>
+                    <span class="note-title">Block Layout</span>
+                </a>
+            </div>
+
+            <div class="section-header-container">
+                <h2 class="section-title">JavaScript Assignments</h2>
+            </div>
+
+            <div class="pinboard-grid">
+                <a href="second.html" target="_blank" class="practice-note">
+                    <span class="note-number">01</span>
+                    <span class="note-title">Second</span>
+                </a>
+                <a href="creatediv.html" target="_blank" class="practice-note">
+                    <span class="note-number">02</span>
+                    <span class="note-title">Create Div</span>
+                </a>
+                <a href="createelement.html" target="_blank" class="practice-note">
+                    <span class="note-number">03</span>
+                    <span class="note-title">Create Element</span>
+                </a>
+                <a href="mylib.js" target="_blank" class="practice-note">
+                    <span class="note-number">04</span>
+                    <span class="note-title">My Lib</span>
+                </a>
+                <a href="usinglib.html" target="_blank" class="practice-note">
+                    <span class="note-number">05</span>
+                    <span class="note-title">Using Lib</span>
+                </a>
+                <a href="color.html" target="_blank" class="practice-note">
+                    <span class="note-number">06</span>
+                    <span class="note-title">Color</span>
+                </a>
+                <a href="inputelement.html" target="_blank" class="practice-note">
+                    <span class="note-number">07</span>
+                    <span class="note-title">Input Element</span>
+                </a>
+                <a href="date.html" target="_blank" class="practice-note">
+                    <span class="note-number">08</span>
+                    <span class="note-title">Date</span>
+                </a>
+                <a href="loop1.html" target="_blank" class="practice-note">
+                    <span class="note-number">09</span>
+                    <span class="note-title">Loop 1</span>
+                </a>
+                <a href="loop2.html" target="_blank" class="practice-note">
+                    <span class="note-number">10</span>
+                    <span class="note-title">Loop 2</span>
+                </a>
+                <a href="color2.html" target="_blank" class="practice-note">
+                    <span class="note-number">11</span>
+                    <span class="note-title">Color 2</span>
+                </a>
+                <a href="color3.html" target="_blank" class="practice-note">
+                    <span class="note-number">12</span>
+                    <span class="note-title">Color 3</span>
+                </a>
+                <a href="whileloop.html" target="_blank" class="practice-note">
+                    <span class="note-number">13</span>
+                    <span class="note-title">While Loop</span>
+                </a>
+                <a href="whileloop2.html" target="_blank" class="practice-note">
+                    <span class="note-number">14</span>
+                    <span class="note-title">While Loop 2</span>
+                </a>
+                <a href="array.html" target="_blank" class="practice-note">
+                    <span class="note-number">15</span>
+                    <span class="note-title">Array</span>
+                </a>
+                <a href="array2.html" target="_blank" class="practice-note">
+                    <span class="note-number">16</span>
+                    <span class="note-title">Array 2</span>
+                </a>
+                <a href="createpop.html" target="_blank" class="practice-note">
+                    <span class="note-number">17</span>
+                    <span class="note-title">Create Pop</span>
+                </a>
+                <a href="redirection.html" target="_blank" class="practice-note">
+                    <span class="note-number">18</span>
+                    <span class="note-title">Redirection</span>
+                </a>
+                <a href="button.html" target="_blank" class="practice-note">
+                    <span class="note-number">19</span>
+                    <span class="note-title">Button</span>
+                </a>
+                <a href="whileloop3.html" target="_blank" class="practice-note">
+                    <span class="note-number">20</span>
+                    <span class="note-title">While Loop 3</span>
+                </a>
+                <a href="banner.html" target="_blank" class="practice-note">
+                    <span class="note-number">21</span>
+                    <span class="note-title">Banner</span>
+                </a>
+                <a href="banner_with_button.html" target="_blank" class="practice-note">
+                    <span class="note-number">22</span>
+                    <span class="note-title">Banner Button</span>
+                </a>
+                <a href="dowhileloop.html" target="_blank" class="practice-note">
+                    <span class="note-number">23</span>
+                    <span class="note-title">Do While Loop</span>
+                </a>
+                 <a href="menu.html" target="_blank" class="practice-note">
+                    <span class="note-number">24</span>
+                    <span class="note-title">Menu</span>
+                </a>
+                 <a href="draw1.html" target="_blank" class="practice-note">
+                    <span class="note-number">25</span>
+                    <span class="note-title">Draw1</span>
+                </a>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="footer-logo">
+                <h1>IJ</h1>
+            </div>
+            <div class="footer-social">
+                <div class="social-icons">
+                    <a href="http://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.behance.net/" target="_blank"><i class="fa-brands fa-behance"></i></a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2026. Crafted by Ira Jaiswal.</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
