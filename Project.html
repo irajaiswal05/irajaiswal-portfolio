@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ira Jaiswal | Project</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-outer: #D0D48D;      
+            --bg-paper: #FFFDF6;      
+            --accent-lavender: #A8B1E6;
+            --accent-orange: #F99E75;
+            --accent-pink: #ffb6c1;
+            --text-main: #382214;     
+            --grid-line: #C4C9F0;     
+            --font-heading: 'Fredoka', sans-serif;
+            --font-body: 'Quicksand', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-outer);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding: 40px 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            letter-spacing: 1px;
+        }
+
+        a { text-decoration: none; transition: 0.3s; }
+
+        .notebook-paper {
+            background-color: var(--bg-paper);
+            background-image: 
+                linear-gradient(var(--grid-line) 2px, transparent 2px),
+                linear-gradient(90deg, var(--grid-line) 2px, transparent 2px);
+            background-size: 40px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 20px;
+            border: 3px solid var(--text-main);
+            box-shadow: 15px 15px 0px rgba(56, 34, 20, 0.15); 
+            overflow: hidden;
+            position: relative;
+        }
+
+        .top-nav {
+            background-color: rgba(255, 253, 246, 0.95);
+            padding: 15px 0;
+            text-align: center;
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--text-main);
+        }
+
+        .top-nav ul {
+            list-style: none;
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center;
+        }
+
+        .top-nav li { margin: 5px 15px; }
+
+        .top-nav a {
+            color: var(--text-main);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .top-nav a:hover { color: var(--accent-orange); }
+
+        .page-header {
+            padding: 60px 20px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-lavender);
+            text-shadow: 3px 3px 0px var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .page-header p {
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: var(--accent-pink);
+            display: inline-block;
+            padding: 5px 20px;
+            border: 2px solid var(--text-main);
+            border-radius: 20px;
+            transform: rotate(2deg);
+        }
+
+        .inner-canvas {
+            background-color: #ffffff;
+            border: 3px solid var(--text-main);
+            border-radius: 15px;
+            margin: 0 30px 60px 30px;
+            padding: 40px;
+            box-shadow: 10px 10px 0px var(--accent-lavender);
+        }
+
+        .back-btn {
+            display: inline-block;
+            background-color: #fffcab;
+            color: var(--text-main);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            padding: 8px 20px;
+            border: 2px dashed var(--text-main);
+            border-radius: 5px;
+            box-shadow: 4px 4px 0px var(--text-main);
+            margin-bottom: 40px;
+            transform: rotate(-2deg);
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: rotate(0deg) translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--text-main);
+            background-color: var(--accent-orange);
+        }
+
+        .journal-list {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .journal-entry {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background-color: var(--bg-paper);
+            padding: 30px;
+            border: 3px solid var(--text-main);
+            border-radius: 10px;
+            box-shadow: 8px 8px 0px var(--accent-lavender);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .journal-entry:nth-child(even) {
+            flex-direction: row-reverse;
+            box-shadow: -8px 8px 0px var(--accent-orange);
+            transform: rotate(1deg);
+        }
+
+        .journal-entry:nth-child(odd) {
+            transform: rotate(-1deg);
+        }
+
+        .journal-entry:hover {
+            transform: translateY(-5px) rotate(0deg);
+            box-shadow: 12px 12px 0px var(--text-main);
+            z-index: 10;
+        }
+
+        .journal-entry:nth-child(even):hover {
+            box-shadow: -12px 12px 0px var(--text-main);
+        }
+
+        .journal-image {
+            flex: 1;
+            max-width: 45%;
+            height: 280px;
+            border: 2px solid var(--text-main);
+            background-color: #fff;
+            padding: 10px;
+            position: relative;
+        }
+
+        .journal-image::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 80px;
+            height: 25px;
+            background-color: rgba(244, 240, 230, 0.9);
+            border: 2px solid var(--text-main);
+            transform: rotate(-5deg);
+            z-index: 5;
+        }
+
+        .journal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 2px solid var(--text-main);
+        }
+
+        .journal-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .journal-details h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .journal-details p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .view-link {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
+            border-bottom: 3px solid var(--accent-pink);
+            align-self: flex-start;
+            padding-bottom: 2px;
+            transition: 0.2s;
+            text-transform: uppercase;
+        }
+
+        .journal-entry:hover .view-link {
+            color: var(--accent-orange);
+            border-color: var(--text-main);
+        }
+
+        footer {
+            padding: 60px 20px; 
+            text-align: center;
+            border-top: 4px dashed var(--text-main);
+            background: var(--accent-pink);
+        }
+
+        .footer-logo h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 20px; 
+            color: var(--accent-lavender);
+            text-shadow: 3px 3px 0px var(--text-main);
+        }
+
+        .footer-social { margin-bottom: 30px; }
+
+        .social-icons { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            margin-top: 10px;
+        }
+        
+        .social-icons a { 
+            color: var(--text-main); 
+            font-size: 2rem; 
+            background: var(--bg-paper);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--text-main);
+            border-radius: 50%;
+            box-shadow: 4px 4px 0px var(--accent-orange);
+            transition: 0.3s;
+        }
+        
+        .social-icons a:hover { 
+            background: var(--accent-lavender);
+            transform: translateY(-5px);
+            box-shadow: 6px 8px 0px var(--text-main);
+        }
+
+        .copyright { 
+            font-size: 1.1rem; 
+            font-weight: 600;
+            color: var(--text-main); 
+        }
+
+        @media only screen and (max-width: 768px) {
+            .inner-canvas {
+                margin: 0 15px 40px 15px;
+                padding: 30px 20px;
+            }
+            .journal-entry, .journal-entry:nth-child(even) {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            .journal-image {
+                max-width: 100%;
+                width: 100%;
+            }
+            .view-link {
+                align-self: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="notebook-paper">
+        
+        <nav class="top-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Practice.html">Practice Work</a></li>
+                <li><a href="Project.html">Project</a></li>
+                <li><a href="index.html#form-section">Contact</a></li>
+            </ul>
+        </nav>
+
+        <header class="page-header">
+            <h1>My Projects</h1>
+            <p>UI Case Studies & Visual Identity</p>
+        </header>
+
+        <div class="inner-canvas">
+            
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+
+            <div class="journal-list">
+                
+                <a href="https://irajaiswal05.github.io/project-plantify/" class="journal-entry" target="_blank">
+                    <div class="journal-image">
+                        <img src="images/plantify.png" alt="Plantify Project">
+                    </div>
+                    <div class="journal-details">
+                        <h2>Plantify</h2>
+                        <p>A comprehensive digital interface and UI/UX case study focusing on intuitive plant care tracking and community engagement.</p>
+                        <span class="view-link">Explore Case Study &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="https://irajaiswal05.github.io/arena_animation/" class="journal-entry" target="_blank">
+                    <div class="journal-image">
+                        <img src="images/arena.png" alt="Arena Animation Projects">
+                    </div>
+                    <div class="journal-details">
+                        <h2>Arena Animation</h2>
+                        <p>An extensive coursework portfolio showcasing advanced graphic design, branding elements, and visual identity projects.</p>
+                        <span class="view-link">Explore Case Study &rarr;</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-logo">
+                <h1>IJ</h1>
+            </div>
+            <div class="footer-social">
+                <div class="social-icons">
+                    <a href="http://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.behance.net/" target="_blank"><i class="fa-brands fa-behance"></i></a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2026. Crafted by Ira Jaiswal.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
