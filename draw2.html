@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes Fun</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: rgb(233, 241, 241);
+        }
+        
+        #mycolor {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border: 2px solid white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        #ui-panel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            width: 350px;
+            pointer-events: none; 
+        }
+
+        #ui-panel h2 {
+            margin: 0 0 15px 0;
+            color: #0a1f3b; 
+            text-align: center;
+            font-size: 22px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background-color: #0a1f3b; 
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            border: 1px solid #0a1f3b;
+        }
+
+        td {
+            padding: 12px 10px;
+            border: 1px solid #eaeaea;
+            text-align: center;
+            color: #333;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="color" id="mycolor" value="#ff0000">
+
+    <div id="ui-panel">
+        <h2>App Controls</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mouse Click</td>
+                    <td>Start / Stop Drawing</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>Increase Brush Size</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>Decrease Brush Size</td>
+                </tr>
+                <tr>
+                    <td>L</td>
+                    <td>Draw Abstract Lines</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>Draw Circles</td>
+                </tr>
+                <tr>
+                    <td>S</td>
+                    <td>Draw Squares</td>
+                </tr>
+                <tr>
+                    <td>Spacebar</td>
+                    <td>Clear Canvas</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <canvas id="mycan"></canvas>
+    
+    <script>
+        var c = document.getElementById("mycan");
+        var mycolor = document.getElementById("mycolor");
+        var d = c.getContext("2d");
+        
+        c.width = window.innerWidth;
+        c.height = window.innerHeight;
+        
+        var k;
+        var r = 10;
+        var red, green, blue, drawcolor;
+        var drawmode = false;
+        var shape = "line"; 
+
+        mycolor.onchange = function() {
+            drawcolor = this.value;
+        }
+
+        function f1(event) {
+            k = event.key.toLowerCase(); 
+            
+            switch(k) {
+                case "+":
+                    if(r < 100) r = r + 1;
+                    break;
+                case "-":
+                    if(r > 10) r = r - 1;
+                    break;
+                case " ":
+                    d.clearRect(0, 0, window.innerWidth, window.innerHeight);
+                    break;
+                case "l":
+                    shape = "line";
+                    break;
+                case "c":
+                    shape = "circle";
+                    break;
+                case "s":
+                    shape = "square";
+                    break;
+            }
+        }
+
+        function draw(event) {
+            if(drawmode) {
+                var x = event.pageX;
+                var y = event.pageY;
+                
+                red = Math.round(Math.random() * 255);
+                green = Math.round(Math.random() * 255);
+                blue = Math.round(Math.random() * 255);
+                drawcolor = "rgb(" + red + "," + green + "," + blue + ")";
+
+                d.beginPath();
+                
+                if (shape === "line") {
+                    d.moveTo(x, y);
+                    d.lineTo(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+                    d.lineWidth = Math.random() * 110;
+                    d.strokeStyle = drawcolor; 
+                    d.stroke();
+                } 
+                else if (shape === "circle") {
+                    d.arc(x, y, r, 0, 2 * Math.PI);
+                    d.fillStyle = drawcolor;
+                    d.fill();
+                    d.lineWidth = 2;
+                    d.strokeStyle = drawcolor; 
+                    d.stroke();
+                } 
+                else if (shape === "square") {
+                    d.rect(x - r, y - r, r * 2, r * 2); 
+                    d.fillStyle = drawcolor;
+                    d.fill();
+                    d.lineWidth = 2;
+                    d.strokeStyle = drawcolor; 
+                    d.stroke();
+                }
+            }
+        }
+
+        function f2() {
+            drawmode = (!drawmode) ? true : false;
+        }
+
+        document.addEventListener("keydown", f1);
+        document.addEventListener("click", f2);
+        document.addEventListener("mousemove", draw);
+    </script>
+</body>
+</html>
