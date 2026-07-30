@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About jQuery</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+<style>
+    body {
+        background-color: #F0F8FF;
+        color: #334257;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    * {
+        cursor: pointer;
+        transition: all 0.4s ease;
+    }
+
+    h1 {
+        color: #5DADE2;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    #my {
+        color: #2E86C1;
+    }
+
+    #b1 {
+        background-color: #5DADE2;
+        color: white;
+        border: none;
+        padding: 12px 28px;
+        font-size: 14px;
+        border-radius: 6px;
+        margin: 20px 0;
+        cursor: pointer;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    #b1:hover {
+        background-color: #2E86C1;
+        box-shadow: 0 4px 12px rgba(46, 134, 193, 0.3);
+    }
+
+    .pic {
+        max-width: 220px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(93, 173, 226, 0.15);
+        margin-bottom: 20px;
+    }
+
+    .text {
+        color: #546E7A;
+        max-width: 700px;
+        line-height: 1.8;
+        padding: 30px;
+        background-color: #FFFFFF;
+        border-radius: 8px;
+        border: 1px solid #D6EAF8;
+        margin-bottom: 20px;
+        text-align: justify;
+    }
+</style>
+<body>
+    <img src="images/p1.png" class="pic">
+    <button id="b1">Show hide heading</button>
+    <h1 id="my">Welcome to Jquery</h1>
+    <h1>About Jquery</h1>
+    <p class="text">
+        jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript. It essentially acts as a wrapper, taking common, complex JavaScript tasks and simplifying them into methods that you can call with just a single line of code.
+    </p>
+    <p class="text">
+        The main goal of jQuery is summarized by its famous philosophy: "Write Less, Do More." By utilizing powerful CSS-like selectors, developers can precisely target HTML elements and apply changes dynamically, such as altering styles, fading elements in and out, or creating interactive slideshows without needing to write extensive code. Learning jQuery provides a strong foundation for understanding how standard JavaScript interacts with the Document Object Model, enabling the creation of engaging, responsive user interfaces quickly and efficiently.
+    </p>
+
+    <script>
+        $(document).ready(function() {
+            
+            $("#b1").click(function() {
+                $("#my").toggle("fast")
+            })
+
+            $(".text").mouseover(function() {
+                $(this).css({"transition":"0.8s", "color":"#2E86C1", "background":"#EBF5FB", "border-color":"#85C1E9"})
+            })
+
+            $(".text").mouseout(function() {
+                $(this).css({"transition":"0.8s", "color":"#546E7A", "background":"#FFFFFF", "border-color":"#D6EAF8"})
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    
+    <style>
+        body {
+            background-color: #F0F8FF;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .sidebar-menu {
+            background: white;
+            width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(93, 173, 226, 0.15);
+            padding: 20px;
+        }
+
+        ol {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main-item {
+            background-color: #ffffff;
+            color: #334257;
+            padding: 15px 20px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid #D6EAF8;
+            transition: all 0.3s ease;
+        }
+
+        .main-item:hover {
+            background-color: #5DADE2;
+            color: white;
+        }
+
+        .sub-menu {
+            display: none; 
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        .sub-menu li {
+            padding: 10px 15px;
+            color: #546E7A;
+            font-size: 0.9em;
+            cursor: pointer;
+            border-radius: 6px;
+            margin-bottom: 4px;
+            transition: background 0.2s ease;
+        }
+
+        .sub-menu li:hover {
+            background-color: #EBF5FB;
+            color: #2E86C1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar-menu">
+        <ol>
+            <li class="main-item">Home</li>
+            
+            <li class="main-item" id="project">Projects
+                <ol class="sub-menu">
+                    <li>Project 1: Mobile App</li>
+                    <li>Project 2: Web Dashboard</li>
+                    <li>Project 3: Branding</li>
+                </ol>
+            </li>
+            
+            <li class="main-item" id="practice">Practice
+                <ol class="sub-menu">
+                    <li>HTML Wireframing</li>
+                    <li>JavaScript Logic</li>
+                    <li>jQuery Animations</li>
+                </ol>
+            </li>
+            
+            <li class="main-item" id="social">Social Media
+                <ol class="sub-menu">
+                    <li>YouTube Channel</li>
+                    <li>Instagram Portfolio</li>
+                    <li>LinkedIn Profile</li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            
+            $("#project").click(function() {
+                $("#project .sub-menu").slideToggle(300);
+            });
+            
+            $("#practice").click(function() {
+                $("#practice .sub-menu").slideToggle(300);
+            });
+            
+            $("#social").click(function() {
+                $("#social .sub-menu").slideToggle(300);
+            });
+            
+        });
+    </script>
+</body>
+</html>

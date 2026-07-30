@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Guide</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        body {
+            background-color: #FAFAFA;
+            font-family: 'Poppins', Arial, sans-serif;
+            color: #333333;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #FFFFFF;
+            width: 100%;
+            max-width: 900px;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-sizing: border-box;
+        }
+
+        #header {
+            background-color: #111111;
+            color: #FFFFFF;
+            font-size: 32px;
+            font-weight: 600;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .image-wrapper {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        img {
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin: 15px;
+            object-fit: cover;
+        }
+
+        h1 {
+            color: #111111;
+            font-size: 24px;
+            font-weight: 600;
+            border-bottom: 2px solid #EEEEEE;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #555555;
+            text-align: justify;
+            padding: 15px;
+            background-color: #F9F9F9;
+            border-left: 4px solid #111111;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        caption {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #111111;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #EEEEEE;
+        }
+
+        th {
+            background-color: #111111;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        tr:hover td {
+            background-color: #F9F9F9;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #EEEEEE;
+        }
+
+        footer h2 {
+            font-size: 16px;
+            color: #777777;
+            font-weight: 600;
+        }
+
+        footer p {
+            background: transparent;
+            border: none;
+            text-align: center;
+            font-size: 14px;
+            color: #999999;
+        }
+
+        .pic {
+            transition: 0.2s;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div id="header">
+            UI Design Guide
+        </div>
+
+        <div class="image-wrapper">
+            <img src="images/p2 (1).png" width="20%">
+            <br/>
+            <img src="images/p3.png" width="80%">
+        </div>
+
+        <h1>About</h1>
+        <p>
+            Inclusive user interface (UI) and user experience (UX) design ensure that digital products are accessible to everyone, regardless of visual, motor, or cognitive abilities. A well-structured layout goes beyond aesthetics; it prioritizes clear navigation, readable typography, and logical visual hierarchies. By implementing accessible design systems, creators can build web environments where every user can interact seamlessly without encountering frustrating digital barriers.
+        </p>
+
+        <h1>Policy</h1>
+        <p>
+            All digital assets must adhere to the Web Content Accessibility Guidelines (WCAG) standard. This policy requires strict compliance with color contrast ratios to ensure text remains legible against background elements. Furthermore, all interactive components—such as buttons and form fields—must support full keyboard navigation and include appropriate descriptive tags for screen readers. Designing with these foundational rules guarantees a universally functional interface.
+        </p>
+
+        <h1>Reports</h1>
+        <table>
+            <caption>Q1 UI Accessibility Audit Results</caption>
+            <tr>
+                <th>UI Component</th>
+                <th>WCAG Standard Tested</th>
+                <th>Audit Status</th>
+            </tr>
+            <tr>
+                <td>Primary Navigation Bar</td>
+                <td>2.1.1 Keyboard Accessibility</td>
+                <td>Passed - Fully Navigable</td>
+            </tr>
+            <tr>
+                <td>Hero Banner Graphic</td>
+                <td>1.1.1 Non-text Content (Alt Text)</td>
+                <td>Passed - Tags Applied</td>
+            </tr>
+            <tr>
+                <td>Submit Form Button</td>
+                <td>1.4.3 Minimum Color Contrast</td>
+                <td>Review - Contrast Ratio Too Low</td>
+            </tr>
+        </table>
+
+        <footer>
+            <h2>All Right Reserved &copy; 2026</h2>
+            <p>
+                The ultimate goal of web development is to bridge the gap between complex code and human interaction. Prioritizing accessibility is not merely a technical requirement, but a commitment to an open and inclusive digital future.
+            </p>
+        </footer>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            
+            $("p").mouseover(function() {
+                $(this).addClass("sel animate__animated animate__bounce");
+            });
+            $("p").mouseout(function() {
+                $(this).css({"transition":"2s"});
+                $(this).removeClass("sel animate__bounce");
+            });
+
+            $("h1").mouseover(function() {
+                $(this).addClass("animate__animated animate__headShake");
+            });
+            $("h1").mouseout(function() {
+                $(this).removeClass("animate__headShake");
+            });
+
+            $("img").mouseover(function() {
+                $(this).css({"width":"20%"});
+                $(this).toggleClass("pic animate__animated animate__flip");
+            });
+            
+        });
+    </script>
+</body>
+</html>
