@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <style>
+        body {
+            background-color: #F8F4FF;
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+       .header-image {
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(179, 157, 219, 0.4);
+        }
+
+        .section-container {
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            background-color: #CBAACB;
+            color: #FFFFFF;
+            padding: 16px 20px;
+            margin: 0;
+            border-radius: 8px;
+            font-size: 1.3rem;
+            font-weight: normal;
+            cursor: pointer;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(203, 170, 203, 0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        h1:hover {
+            background-color: #A58BA6;
+        }
+
+        .sub-content {
+            width: 95%;
+            margin: 0 auto;
+            background-color: #FFFDF9;
+            color: #5A4E5A;
+            padding: 25px;
+            border: 1px solid #E6D0E6;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            box-sizing: border-box;
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="images/art.jpg" class="header-image" alt="Classic Art Aesthetic">
+
+    <div class="section-container" id="about">
+        <h1 id="col1">About us</h1>
+        <div id="aboutsub" class="sub-content">
+            <p>This space serves as an informational digital gallery dedicated to the beauty of Impressionist and Post-Impressionist art. It explores the timeless aesthetics of legendary artists, bridging 19th-century masterpieces with modern digital curation.</p>
+        </div>
+    </div>
+
+    <div class="section-container" id="product">
+        <h1 id="col2">Product</h1>
+        <div id="productsub" class="sub-content">
+            <p>The curated collections highlight distinct artistic elements, including high-resolution scans of oil on canvas, isolated vintage botanical cutouts, and color palette breakdowns sourced directly from iconic paintings like the Sunflowers and Water Lilies.</p>
+        </div>
+    </div>
+
+    <div class="section-container" id="services">
+        <h1 id="col3">Services</h1>
+        <div id="servicessub" class="sub-content">
+            <p>Educational resources include deep dives into historical painting techniques, virtual tours of classic aesthetic movements, and step-by-step guides on how digital archives restore and preserve aging canvas textures for modern viewing.</p>
+        </div>
+    </div>
+
+    <div class="section-container" id="data">
+        <h1 id="col4">Data</h1>
+        <div id="datasub" class="sub-content">
+            <p>Impressionism by the numbers: millions of distinct, visible brushstrokes defining a global movement, thousands of artworks preserved across international digital archives, and endless aesthetic inspiration drawn from the natural world.</p>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            
+            $("#aboutsub").hide();
+            $("#productsub").hide();
+            $("#servicessub").hide();
+            $("#datasub").hide();
+
+            $("#col1").click(function() {
+                $("#productsub").slideUp(500);
+                $("#servicessub").slideUp(500);
+                $("#datasub").slideUp(500);
+                
+                $("#aboutsub").slideToggle(500);
+                $("#aboutsub").css({"background-color":"#FDF8FD", "color":"#6A4E6A"});
+            });
+
+            $("#col2").click(function() {
+                $("#aboutsub").slideUp(500);
+                $("#servicessub").slideUp(500);
+                $("#datasub").slideUp(500);
+                
+                $("#productsub").slideToggle(500);
+                $("#productsub").css({"background-color":"#FDF8FD", "color":"#6A4E6A"});
+            });
+
+            $("#col3").click(function() {
+                $("#aboutsub").slideUp(500);
+                $("#productsub").slideUp(500);
+                $("#datasub").slideUp(500);
+                
+                $("#servicessub").slideToggle(500);
+                $("#servicessub").css({"background-color":"#FDF8FD", "color":"#6A4E6A"});
+            });
+
+            $("#col4").click(function() {
+                $("#aboutsub").slideUp(500);
+                $("#productsub").slideUp(500);
+                $("#servicessub").slideUp(500);
+                
+                $("#datasub").slideToggle(500);
+                $("#datasub").css({"background-color":"#FDF8FD", "color":"#6A4E6A"});
+            });
+        });
+    </script>
+</body>
+</html>
