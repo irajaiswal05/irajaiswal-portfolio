@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floral Image Slider</title>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0-beta.1/jquery-ui.min.js" integrity="sha256-eTkBotE66yiuQ4Th2m+9M00ivksRSCZHIphWprTOFIs=" crossorigin="anonymous"></script>
+    
+    <style>
+        body {
+            background-color: #fcf9f9;
+            font-family: sans-serif;
+        }
+
+        #main {
+            width: 80%;
+            max-width: 800px;
+            height: 500px;
+            margin: 60px auto;
+            overflow: hidden;
+            border-radius: 24px;
+            border: 10px solid #ffffff;
+            box-shadow: 0 15px 35px rgba(215, 185, 195, 0.4);
+        }
+
+        .pic {
+            width: 100%;
+            height: 500px;
+        }
+
+        .pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main">
+        <div id="pic1" class="pic">
+            <img src="images/Lily.jpg">
+        </div>
+        <div id="pic2" class="pic">
+            <img src="images/Bell.jpg">
+        </div>
+        <div id="pic3" class="pic">
+            <img src="images/Lav.jpg">
+        </div>
+        <div id="pic4" class="pic">
+            <img src="images/Lotus.jpg">
+        </div>
+    </div>
+
+    <script>
+        var c = 1;
+        var t = 0;
+        
+        $(document).ready(function() {
+            setInterval(function runb() {
+                
+                if ((c <= 3) && (t == 0)) {
+                    $("#pic" + c).hide(1000);
+                    c++;
+                } 
+                else {
+                    t = 1;
+                }
+
+                if ((c >= 1) && (t == 1)) {
+                    $("#pic" + c).show(1000);
+                    c--;
+                } 
+                else {
+                    t = 0;
+                }
+
+                document.title = c;
+                
+            }, 3000); 
+        });
+    </script>
+</body>
+</html>

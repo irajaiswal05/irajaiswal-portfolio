@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Text, HTML, and Value</title>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: #fcf9f9;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(215, 185, 195, 0.4);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #4a4a4a;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 2px solid #f9f0f4;
+            padding-bottom: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 14px;
+            color: #888;
+            margin: 0 0 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"] {
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #f0e6ea;
+            border-radius: 12px;
+            outline: none;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+            color: #555;
+            background-color: #faf8f9;
+        }
+
+        input[type="text"]:focus {
+            border-color: #d7b9c3;
+            background-color: #ffffff;
+        }
+
+        #data {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 16px;
+            border: 2px dashed #e4d1d8;
+            line-height: 1.7;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            color: #666;
+        }
+
+        #data:hover {
+            border-color: #d7b9c3;
+            background-color: #fdfafb;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Jquery text(), html(), value()</h1>
+        
+        <div class="input-group">
+            <h2>User Name <input type="text" id="uname" value="name"></h2>
+        </div>
+        
+        <div class="input-group">
+            <h2>User Age.. <input type="text" id="uage"></h2>
+        </div>
+        
+        <p id="data">Lorem <b>ipsum dolor sit amet consectetur</b> adipisicing elit. Et officia eius assumenda, aliquid similique fugit.</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            
+            $("#uname").click(function() {
+                $(this).val("ssssss"); 
+            });
+
+            $("#data").click(function() {
+                var $t = $(this).text(); 
+                $(this).html("<h1 style='color:#a88895; text-align:center; margin:0;'>" + $t + "</h1>");
+                $(this).css("border", "none");
+            });
+
+        });
+    </script>
+</body>
+</html>
