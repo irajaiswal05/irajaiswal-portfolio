@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Cat & Flowers Animation</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f4f9f4; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .split-container {
+            background: #ffffff;
+            width: 90%;
+            max-width: 900px;
+            height: 500px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            display: flex; 
+            overflow: hidden;
+            border: 2px solid #e2ebd8;
+        }
+
+        .left-panel {
+            width: 50%;
+            position: relative;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right-panel {
+            width: 50%;
+            background-color: #e2ebd8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; 
+        }
+
+        #catVideo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            cursor: pointer;
+        }
+
+        .title-banner {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            color: #799373;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        #animated-box {
+            width: 160px;
+            height: 20px;
+            background: #799373; 
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-family: 'Segoe UI', arial black;
+            font-weight: bold;
+            position: relative; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="split-container">
+        <div class="left-panel">
+            <div class="title-banner">Animation Experiment</div>
+            <div id="animated-box">
+                PAWS & PETALS
+            </div>
+        </div>
+
+        <div class="right-panel" id="media-panel">
+            <video id="catVideo" src="images/cat_video.mp4" loop></video>
+        </div>
+    </div>
+
+    <script>
+        var box = document.getElementById("animated-box");
+        var mediaPanel = $("#media-panel");
+        var video = document.getElementById("catVideo");
+
+        $(document).ready(function() {
+            $("#animated-box")
+                .delay(800)
+                .animate({borderRadius: "50px"}, 1500, changeThemeColor)
+                .animate({fontSize: "+=4", width: "+=40", height: "+=10px"}, 1500, softBlink)
+                .animate({top: "+=50px"}, 1000, revealCat);
+        });
+
+        function changeThemeColor() {
+            box.style.background = "#fadce0"; 
+            box.style.color = "#5c4044";
+        }
+
+        var r, g, b, c;
+
+        function softBlink() {
+            r = Math.round(200 + Math.random() * 55); 
+            g = Math.round(180 + Math.random() * 75);
+            b = Math.round(180 + Math.random() * 75);
+            c = `rgb(${r},${g},${b})`;
+            box.style.background = c;
+            
+            setTimeout(softBlink, 1000); 
+        }
+
+        function revealCat() {
+            mediaPanel.animate({opacity: 1}, 1000); 
+            
+            var playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(function(error) {
+                    console.log("Browser blocked autoplay. User must click to play.");
+                });
+            }
+        }
+
+        $("#animated-box, #catVideo").click(function() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    </script>
+</body>
+</html>
