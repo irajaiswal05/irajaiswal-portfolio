@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Discover Varanasi | The Spiritual Capital</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body 
+        {
+            background-color: #fdfbf7;
+            color: #333333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-bottom: 50px;
+        }
+
+        .kashi-header 
+        {
+            background: linear-gradient(135deg, #e65c00 0%, #F9D423 100%);
+            color: #ffffff;
+            padding: 4rem 0;
+            margin-bottom: 4rem;
+            box-shadow: 0 4px 15px rgba(230, 92, 0, 0.2);
+        }
+
+        .vertical-card 
+        {
+            width: 100%;
+            aspect-ratio: 9/16;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            border: 4px solid #ffffff;
+        }
+
+        .vertical-card:hover 
+        {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(230, 92, 0, 0.2);
+        }
+
+        .card-img-bg 
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .vertical-card:hover .card-img-bg {
+            transform: scale(1.08);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0) 100%);
+            width: 100%;
+            padding: 40px 20px 25px 20px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .kashi-badge 
+        {
+            background-color: #F9D423;
+            color: #e65c00;
+            font-weight: bold;
+            font-size: 0.75rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .card-title 
+        {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .card-text 
+        {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .download-btn 
+        {
+            background-color: transparent;
+            color: #F9D423;
+            border: 2px solid #F9D423;
+            border-radius: 25px;
+            padding: 8px 25px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .vertical-card:hover .download-btn 
+        {
+            background-color: #F9D423;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="kashi-header text-center">
+        <div class="container">
+            <h1 class="fw-bold text-uppercase" style="letter-spacing: 3px;">Essence of Varanasi</h1>
+            <p class="mb-0 fw-medium" style="letter-spacing: 1px;">Discover the temples, ghats, and flavors of the world's oldest living city.</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row g-4 justify-content-center"> 
+
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                <div class="vertical-card" onclick="downloadVideo('Kashi Vishwanath Temple', 'temple.mp4')">
+                    <img src="images/temple.jpg" alt="Kashi Vishwanath Temple" class="card-img-bg">
+                    <div class="card-content">
+                        <span class="kashi-badge">Spiritual</span>
+                        <h4 class="card-title">Kashi Vishwanath</h4>
+                        <p class="card-text">Dedicated to Lord Shiva, this golden temple is the spiritual heart of Varanasi and one of the twelve Jyotirlingas.</p>
+                        <button class="download-btn">Get Video</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                <div class="vertical-card" onclick="downloadVideo('Dashashwamedh Ghat', 'ghat.mp4')">
+                    <img src="images/ghat.jpg" alt="Dashashwamedh Ghat" class="card-img-bg">
+                    <div class="card-content">
+                        <span class="kashi-badge">Heritage</span>
+                        <h4 class="card-title">Dashashwamedh Ghat</h4>
+                        <p class="card-text">The most spectacular riverfront in Varanasi, famous for its grand, deeply moving evening Ganga Aarti ceremony.</p>
+                        <button class="download-btn">Get Video</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                <div class="vertical-card" onclick="downloadVideo('Varanasi Street Food', 'food.mp4')">
+                    <img src="images/food.jpg" alt="Varanasi Street Food" class="card-img-bg">
+                    <div class="card-content">
+                        <span class="kashi-badge">Culinary</span>
+                        <h4 class="card-title">Local Street Food</h4>
+                        <p class="card-text">From morning Kachori Sabzi and Jalebi to the winter delicacy Malaiyyo, the city's food is deeply tied to its culture.</p>
+                        <button class="download-btn">Get Video</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function downloadVideo(topic, filename) 
+        {
+            let wantToDownload = confirm("Would you like to download a short video clip of " + topic + "?");
+            if (wantToDownload) {
+                alert("Success! The video file for " + topic + " is now downloading to your device.");
+        
+                let downloadLink = document.createElement('a');
+                downloadLink.href = 'images/' + filename; 
+                downloadLink.download = filename; 
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            }
+        }
+    </script>
+</body>
+</html>

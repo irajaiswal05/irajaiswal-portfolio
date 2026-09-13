@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title> Claude Monet | Impressionist Gallery </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root{
+            --canvas-bg:#fdfbf7;
+            --monet-teal:#557174;
+            --text-dark:#3e4a4c
+        }
+        body {
+            background-color: var(--canvas-bg);
+            color: var(--text-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .gallery-header 
+        {
+            background: var(--monet-teal);
+            color: #ffffff;
+            padding: 3rem 1rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(85, 113, 116, 0.15);
+        }
+        
+        .monet-card 
+        {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            height: 100%;
+        }
+
+        .monet-card:hover 
+        {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 35px rgba(85, 113, 116, 0.2);
+        }
+
+        .img-wrapper 
+        {
+            overflow: hidden; 
+            height: 250px; 
+            background: #e9ecef;
+        }
+
+        .monet-card img 
+        {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease; 
+        }
+
+        .monet-card:hover img 
+        {
+            transform: scale(1.08);
+        }
+
+        .card-title 
+        {
+            color: var(--monet-teal);
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .painting-year 
+        {
+            font-size: 0.85rem;
+            color: #a3b1b2;
+            display: block;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .card-text 
+        {
+            font-size: 0.9rem;
+            color: #7a8b8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <div class="gallery-header text-center text-uppercase">
+            <h1 class="fw-light" style="letter-spacing: 4px;">Claude Monet</h1>
+            <p class="mb-0" style="letter-spacing: 2px; font-size: 0.9rem;">Master of Impressionism</p>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row g-4 justify-content-center"> 
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card monet-card">
+                    <div class="img-wrapper">
+                        <img src="images/Monet_dejeunersurlherbe.jpg" alt="Luncheon on the Grass">
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Luncheon on the Grass</h5>
+                        <span class="painting-year">1865</span>
+                        <p class="card-text">A vibrant outdoor picnic scene capturing the dappled sunlight filtering through the canopy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card monet-card">
+                    <div class="img-wrapper">
+                        <img src="images/Vague_Verte.jpg" alt="The Green Wave">
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">The Green Wave</h5>
+                        <span class="painting-year">1866</span>
+                        <p class="card-text">A dynamic and turbulent seascape showcasing the raw, sweeping power of the ocean.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card monet-card">
+                    <div class="img-wrapper">
+                        <img src="images/The_Magpie.jpg" alt="The Magpie">
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">The Magpie</h5>
+                        <span class="painting-year">1869</span>
+                        <p class="card-text">A masterclass in capturing the subtle, luminous blue shadows cast across fresh winter snow.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card monet-card">
+                    <div class="img-wrapper">
+                        <img src="images/La_Grenouillére.jpg" alt="La Grenouillère">
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">La Grenouillère</h5>
+                        <span class="painting-year">1869</span>
+                        <p class="card-text">A lively, shimmering depiction of a popular boating and bathing resort on the Seine.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card monet-card">
+                    <div class="img-wrapper">
+                        <img src="images/Springtime.jpg" alt="Springtime">
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Springtime</h5>
+                        <span class="painting-year">1872</span>
+                        <p class="card-text">A serene, intimate portrait of a woman reading in a sun-dappled, blooming garden.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card monet-card">
+                    <div class="img-wrapper">
+                        <img src="images/Impression,_Sunrise.jpg" alt="Impression, Sunrise">
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Impression, Sunrise</h5>
+                        <span class="painting-year">1872</span>
+                        <p class="card-text">The hazy, atmospheric port scene that famously gave the entire Impressionist movement its name.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card monet-card">
+                    <div class="img-wrapper">
+                        <img src="images/Camille_Monet_sur_son_lit_de_mort.JPG" alt="Camille Monet on Her Deathbed">
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Camille on Her Deathbed</h5>
+                        <span class="painting-year">1879</span>
+                        <p class="card-text">A deeply personal, highly emotive study of light, color, and profound loss.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card monet-card">
+                    <div class="img-wrapper">
+                        <img src="images/WaterLiliesJapanese-ridge.jpg" alt="Water Lilies and Japanese Bridge">
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Water Lilies & Japanese Bridge</h5>
+                        <span class="painting-year">1899</span>
+                        <p class="card-text">An iconic perspective of the arched wooden bridge bathed in the dappled sunlight of his beloved water garden.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card monet-card">
+                    <div class="img-wrapper">
+                        <img src="images/Seerosen5.jpg" alt="Water Lilies">
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Water Lilies</h5>
+                        <span class="painting-year">1916</span>
+                        <p class="card-text">A tranquil, immersive reflection of the sky, sweeping willows, and floating blooms on his pond.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card monet-card">
+                    <div class="img-wrapper">
+                        <img src="images/Weeping_Willow.JPG" alt="Weeping Willow">
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Weeping Willow</h5>
+                        <span class="painting-year">1918</span>
+                        <p class="card-text">A swirling, expressive composition reflecting deep emotion and the iconic trees of Giverny.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card monet-card">
+                    <div class="img-wrapper">
+                        <img src="images/Monet_Der_Rosenweg_in_Giverny.jpeg" alt="The Rose Path in Giverny">
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">The Rose Path</h5>
+                        <span class="painting-year">1920</span>
+                        <p class="card-text">A burst of vibrant, almost abstract floral colors overflowing from his beloved garden paths.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
