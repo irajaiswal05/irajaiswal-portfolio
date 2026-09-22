@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Dropdown Masterclass</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #121212;
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            padding-bottom: 80px;
+        }
+
+        .showcase-header {
+            background: linear-gradient(180deg, #1f1f1f 0%, #121212 100%);
+            padding: 4rem 0;
+            border-bottom: 1px solid #333333;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .category-card {
+            background-color: #1e1e1e;
+            border: 1px solid #2d2d2d;
+            border-radius: 12px;
+            padding: 2.5rem;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .category-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #b3b3b3;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            border-left: 3px solid #ffffff;
+            padding-left: 12px;
+        }
+
+        .btn-grad-purple { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; }
+        .btn-grad-orange { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); color: #121212; border: none; }
+        .btn-grad-teal { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: #121212; border: none; }
+        .btn-grad-rose { background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%); color: white; border: none; }
+
+        .btn {
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+            color: inherit;
+        }
+
+        .dropdown-menu {
+            background-color: #2a2a2a;
+            border: 1px solid #404040;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            margin-top: 8px !important;
+        }
+
+        .dropdown-item {
+            color: #cccccc;
+            padding: 0.6rem 1.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #3d3d3d;
+            color: #ffffff;
+            padding-left: 1.8rem;
+        }
+
+        .dropdown-header {
+            color: #888888;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="showcase-header">
+        <div class="container">
+            <h1 class="fw-bold mb-2">Dropdown Component Library</h1>
+            <p class="text-secondary fs-5">Exploring structural variations from the Bootstrap documentation.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row g-4">
+            
+            <div class="col-12 col-lg-6">
+                <div class="category-card">
+                    <h2 class="category-title">1. Core Structures</h2>
+                    <div class="d-flex flex-wrap gap-3">
+                        
+                        <div class="dropdown">
+                            <button class="btn btn-grad-purple dropdown-toggle px-4 py-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Standard Dropdown
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action Item 1</a></li>
+                                <li><a class="dropdown-item" href="#">Action Item 2</a></li>
+                                <li><a class="dropdown-item" href="#">Action Item 3</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-grad-purple px-4 py-2">Split Button</button>
+                            <button type="button" class="btn btn-grad-purple dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Primary Action</a></li>
+                                <li><a class="dropdown-item" href="#">Secondary Action</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="category-card">
+                    <h2 class="category-title">2. Sizing Variations</h2>
+                    <div class="d-flex flex-wrap align-items-center gap-3">
+                        
+                        <div class="dropdown">
+                            <button class="btn btn-grad-orange btn-lg dropdown-toggle px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Large Menu
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Large Item 1</a></li>
+                                <li><a class="dropdown-item" href="#">Large Item 2</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown">
+                            <button class="btn btn-grad-orange btn-sm dropdown-toggle px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Mini Menu
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Mini Item 1</a></li>
+                                <li><a class="dropdown-item" href="#">Mini Item 2</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="category-card">
+                    <h2 class="category-title">3. Directional Menus</h2>
+                    <div class="d-flex flex-wrap gap-4 mt-5">
+                        
+                        <div class="btn-group dropup">
+                            <button type="button" class="btn btn-grad-teal dropdown-toggle px-4 py-2" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropup Menu
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Opens Upwards 1</a></li>
+                                <li><a class="dropdown-item" href="#">Opens Upwards 2</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group dropend">
+                            <button type="button" class="btn btn-grad-teal dropdown-toggle px-4 py-2" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropend Menu
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Opens Sideways 1</a></li>
+                                <li><a class="dropdown-item" href="#">Opens Sideways 2</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="category-card">
+                    <h2 class="category-title">4. Rich Menu Content</h2>
+                    <div class="dropdown">
+                        <button class="btn btn-grad-rose dropdown-toggle px-4 py-2 w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Account Settings
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li><h6 class="dropdown-header">Profile Settings</h6></li>
+                            <li><a class="dropdown-item" href="#">Edit Profile Information</a></li>
+                            <li><a class="dropdown-item" href="#">Manage Subscriptions</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header">System Settings</h6></li>
+                            <li><a class="dropdown-item" href="#">Notification Preferences</a></li>
+                            <li><a class="dropdown-item disabled" aria-disabled="true" href="#">Advanced Options (Disabled)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger fw-bold" href="#">Delete Account</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

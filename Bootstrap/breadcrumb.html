@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Breadcrumb Demo</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #fcfcfc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #222222;
+        }
+
+        .store-navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #eeeeee;
+            padding: 1.2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .brand-logo {
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 1.25rem;
+        }
+
+        .breadcrumb-wrapper {
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .breadcrumb-item a {
+            color: #0d6efd;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .breadcrumb-item a:hover {
+            color: #0a58ca;
+            text-decoration: underline;
+        }
+
+        .breadcrumb-item.active {
+            color: #000000;
+            font-weight: 600;
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .category-card {
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            border-color: #000000;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .product-gallery {
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-gallery img {
+            width: 100%;
+            max-height: 600px;
+            object-fit: cover;
+        }
+
+        .product-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #b12704;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-desc {
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .btn-add-cart {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 14px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-add-cart:hover {
+            background-color: #333333;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="store-navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span class="brand-logo">Lumina </span>
+            <button class="btn btn-sm btn-outline-dark" onclick="navigate('home')">Reset Demo</button>
+        </div>
+    </nav>
+
+    <div class="container mb-5">
+        
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="breadcrumb-wrapper">
+            <ol class="breadcrumb" id="dynamic-breadcrumb">
+            </ol>
+        </nav>
+
+        <div id="page-home" class="page-section">
+            <h2 class="mb-4">Welcome to Lumina </h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="category-card" onclick="navigate('womens')">
+                        <h4 class="mb-0">Shop Women's Clothing</h4>
+                        <p class="text-muted mt-2 mb-0">Click to enter department</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-womens" class="page-section">
+            <h2 class="mb-4">Women's Department</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="category-card" onclick="navigate('winter')">
+                        <h4 class="mb-0">Winter Collection</h4>
+                        <p class="text-muted mt-2 mb-0">Click to view seasonal items</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-winter" class="page-section">
+            <h2 class="mb-4">Winter Collection</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="category-card" onclick="navigate('product')">
+                        <h4 class="mb-0">Zigo Premium Cardigan</h4>
+                        <p class="text-muted mt-2 mb-0">Click to view product details</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-product" class="page-section">
+            <div class="row g-5 align-items-center">
+                <div class="col-12 col-md-6">
+                    <div class="product-gallery">
+                        <img src="https://images.unsplash.com/photo-1614676471928-2ed0ad1061a4?auto=format&fit=crop&w=800&q=80" alt="Zigo Premium Cardigan">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="text-warning fs-5 mb-3">
+                        ★★★★☆ <span class="text-muted ms-2 fs-6 fw-normal">(128 Customer Reviews)</span>
+                    </div>
+                    <h1 class="product-title">Zigo Premium Knit Cardigan</h1>
+                    <div class="product-price">₹2,499.00</div>
+                    <p class="product-desc">
+                        Experience ultimate comfort and warmth without compromising on style. This chunky knit cardigan features an oversized fit, dropped shoulders, and premium tortoiseshell buttons. Perfect for layering during the crisp winter months.
+                    </p>
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Select Size</label>
+                        <select class="form-select w-50">
+                            <option selected>Choose...</option>
+                            <option value="1">Small (S)</option>
+                            <option value="2">Medium (M)</option>
+                            <option value="3">Large (L)</option>
+                        </select>
+                    </div>
+                    <button class="btn-add-cart" onclick="alert('Item added to cart!')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const breadcrumbState = {
+            'home': [
+                { name: 'Home', id: 'home' }
+            ],
+            'womens': [
+                { name: 'Home', id: 'home' }, 
+                { name: "Women's Clothing", id: 'womens' }
+            ],
+            'winter': [
+                { name: 'Home', id: 'home' }, 
+                { name: "Women's Clothing", id: 'womens' }, 
+                { name: 'Winter Collection', id: 'winter' }
+            ],
+            'product': [
+                { name: 'Home', id: 'home' }, 
+                { name: "Women's Clothing", id: 'womens' }, 
+                { name: 'Winter Collection', id: 'winter' }, 
+                { name: 'Zigo Premium Cardigan', id: 'product' }
+            ]
+        };
+
+        function navigate(pageId) {
+            document.querySelectorAll('.page-section').forEach(el => el.style.display = 'none');
+            
+            document.getElementById('page-' + pageId).style.display = 'block';
+
+            const bcContainer = document.getElementById('dynamic-breadcrumb');
+            bcContainer.innerHTML = '';
+            const trail = breadcrumbState[pageId];
+
+            trail.forEach((crumb, index) => {
+                let li = document.createElement('li');
+                li.className = 'breadcrumb-item';
+                
+                if (index === trail.length - 1) {
+                    li.classList.add('active');
+                    li.setAttribute('aria-current', 'page');
+                    li.innerText = crumb.name;
+                } else {
+                    let a = document.createElement('a');
+                    a.innerText = crumb.name;
+                    a.onclick = () => navigate(crumb.id);
+                    li.appendChild(a);
+                }
+                
+                bcContainer.appendChild(li);
+            });
+        }
+
+        navigate('product');
+    </script>
+</body>
+</html>
